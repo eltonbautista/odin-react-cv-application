@@ -3,7 +3,10 @@
         "browser": true,
         "es2021": true
     },
-    "extends": ["react-app", "prettier"],
+    "extends": [
+        "react-app",
+        "prettier"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -12,7 +15,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react", "prettier"
+        "react",
+        "prettier"
     ],
     "rules": {
         "prettier/prettier": [
@@ -20,7 +24,7 @@
             {
                 "printWidth": 80,
                 "trailingComma": "es5",
-                "semi": false,
+                "semi": true,
                 "jsxSingleQuote": true,
                 "singleQuote": true,
                 "useTabs": true
