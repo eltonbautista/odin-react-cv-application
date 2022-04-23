@@ -1,8 +1,8 @@
 // This component will be used as a container for my form(s)
 import React, { Component } from 'react';
 // import App from '../App';
-import FormSubComponents from './FormSubComponents';
-
+import InformationHeaderRows from './InformationHeaderRows';
+import InformationRows from './InformationRows';
 // Okay so we have these FormSubComponents, then each one of them will have specific attributes.
 // Each attribute will create a new <li>{attribute}</li> inside of them (through the FormSubComponent.js)
 // Example: <FormSubComponents title='Personal Information' attrOne='Name' attrTwo='Email' attrThree='Phone number' />
@@ -23,9 +23,13 @@ class Form extends Component {
 	render() {
 		return (
 			<div>
-				<FormSubComponents title='Personal Information' />
-				<FormSubComponents title='Education' />
-				<FormSubComponents title='Work History' />
+				<InformationHeaderRows
+					title='Personal Information'
+					info='information'
+				/>
+
+				<InformationHeaderRows title='Education' />
+				<InformationHeaderRows title='Work History' />
 			</div>
 		);
 	}
