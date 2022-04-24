@@ -19,12 +19,12 @@ class InformationRows extends Component {
 		const { uniqid } = this.id;
 		// console.log(information);
 
-		let keyer = 0;
+		// let keyer = 0;
 		const listOfInformation = information.map((info) => {
-			keyer += 1;
+			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			return (
-				<li key={keyer}>
-					<input type='text' placeholder={info}></input>
+				<li key={properId}>
+					<input type='text' placeholder={info} id={properId}></input>
 				</li>
 			);
 		});
