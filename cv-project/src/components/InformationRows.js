@@ -24,8 +24,7 @@ class InformationRows extends Component {
 			keyer += 1;
 			return (
 				<li key={keyer}>
-					<label>{info}:</label>
-					<input type='text'></input>
+					<input type='text' placeholder={info}></input>
 				</li>
 			);
 		});
