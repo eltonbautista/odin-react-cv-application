@@ -25,11 +25,33 @@ class Form extends Component {
 			<div>
 				<InformationHeaderRows
 					title='Personal Information'
-					info='information'
+					info={[
+						'First Name',
+						'Last Name',
+						'Title',
+						'Address',
+						'Email',
+						'Phone number',
+						'Description',
+					]}
+				/>
+				<InformationHeaderRows
+					title='Experience'
+					info={['Posiion', 'Company', 'City', 'From', 'To']}
+				/>
+				<InformationHeaderRows
+					title='Education'
+					info={['University name', 'City', 'Degree', 'From', 'To']}
 				/>
 
-				<InformationHeaderRows title='Education' />
-				<InformationHeaderRows title='Work History' />
+				<InformationHeaderRows
+					title='Certification'
+					info={['Certifications']}
+				/>
+
+				<InformationHeaderRows title='Tech Stack' info={['Technologies']} />
+				<InformationHeaderRows title='Skills' info={['Skills']} />
+				<InformationHeaderRows title='Passions' info={['Passions']} />
 			</div>
 		);
 	}
