@@ -7,28 +7,46 @@ import uniqid from 'uniqid';
 // -> I guess it could be some component which takes the attributes and renders them.
 
 class InformationRows extends Component {
-	constructor(information) {
+	constructor({ information, imgFiler }) {
 		super();
 
 		this.information = information;
 		this.id = uniqid;
+		this.imgFile = imgFiler;
 	}
 
 	render() {
-		const { information } = this.information;
+		const information = this.information;
+		// const toRender = this.torender;
+		const imgFiler = this.imgFiler;
 		const { uniqid } = this.id;
 		// console.log(information);
 
 		// let keyer = 0;
 		const listOfInformation = information.map((info) => {
 			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
+			if (info === 'imgFiler') {
+				return (
+					<div>
+						<label>Upload image </label>
+						<input type='file'></input>
+					</div>
+				);
+			}
 			return (
 				<li key={properId}>
 					<input type='text' placeholder={info} id={properId}></input>
+					{imgFiler}
 				</li>
 			);
 		});
-		return <ul>{listOfInformation}</ul>;
+
+		return (
+			<form>
+				<ul>{listOfInformation}</ul>
+				<button type='submit'>Add</button>
+			</form>
+		);
 	}
 }
 
