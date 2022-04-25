@@ -27,10 +27,10 @@ class InformationRows extends Component {
 			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			if (info === 'imgFiler') {
 				return (
-					<div>
+					<li key={properId}>
 						<label>Upload image </label>
 						<input type='file'></input>
-					</div>
+					</li>
 				);
 			}
 			return (

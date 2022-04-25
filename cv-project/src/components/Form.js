@@ -21,10 +21,6 @@ import InformationRows from './InformationRows';
 
 class Form extends Component {
 	render() {
-		const imgFile = function imgFile() {
-			return <input type='file'></input>;
-		};
-
 		return (
 			<div>
 				<InformationHeaderRows
@@ -39,7 +35,6 @@ class Form extends Component {
 						'Description',
 						'imgFiler',
 					]}
-					imgFiler={imgFile()}
 				/>
 				<InformationHeaderRows
 					title='Experience'
