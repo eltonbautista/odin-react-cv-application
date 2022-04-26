@@ -11,6 +11,9 @@ import Header from './components/Header';
 class App extends Component {
 	render() {
 		// eslint-disable-next-line prettier/prettier
+		// const header = document.querySelector('#app > header');
+		// console.log(header.title);
+
 		return (
 			<div id='app'>
 				<Header title='CV Project App' />

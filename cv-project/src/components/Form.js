@@ -27,17 +27,6 @@ class Form extends Component {
 			return <button type='button'>Remove</button>;
 		};
 
-		const formsArray = document.querySelectorAll('#form');
-		const [
-			personalInformationInputs,
-			workExperienceInputs,
-			educationInputs,
-			certificationInputs,
-			techStackInputs,
-			skillsInputs,
-			passionsInputs,
-		] = formsArray;
-
 		// Each of these indices is in charge of the inputs inside their corresponding component.
 		// We'll use this to monitor state of each input's value.
 		// Hmm can a component only have one state? Need to read more docs about state and understand it better before proceeding.

@@ -22,7 +22,7 @@ class ResumePreviewRows extends Component {
 
 		return (
 			<div>
-				<ul>{listOfInformation}</ul>
+				<ul className='resume-preview-list'>{listOfInformation}</ul>
 			</div>
 		);
 	}

@@ -42,7 +42,7 @@ class InformationRows extends Component {
 		});
 
 		return (
-			<form id='form'>
+			<form className='form'>
 				<ul>{listOfInformation}</ul>
 				{/* <button type='submit'>Add</button> */}
 				<>{addButton}</>

@@ -13,6 +13,20 @@ class ResumePreview extends Component {
 				<img alt='profile'></img>{' '}
 			</div>
 		);
+
+		const formsArray = document.querySelectorAll('.form');
+		const [
+			personalInformationInputs,
+			workExperienceInputs,
+			educationInputs,
+			certificationInputs,
+			techStackInputs,
+			skillsInputs,
+			passionsInputs,
+		] = formsArray;
+
+		// information needs to render the values inside an input. This means that it would be consistently mapping over the appropriate array.
+		// For example, we would be consistently mapping over personalInformationInputs' values
 		return (
 			<div id='resume-preview'>
 				<ResumePreviewHeaderRows
