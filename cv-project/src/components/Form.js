@@ -44,7 +44,7 @@ class Form extends Component {
 				/>
 				<InformationHeaderRows
 					title='Experience'
-					info={['Posiion', 'Company', 'City', 'From', 'To']}
+					info={['Position', 'Company', 'City', 'From', 'To']}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
