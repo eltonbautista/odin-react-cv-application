@@ -19,6 +19,11 @@ import InformationHeaderRows from './InformationHeaderRows';
 // Right, so by adding attributes it will increase the amount of items in the descriptors array.
 
 class Form extends Component {
+	constructor({ changeFunc }) {
+		super();
+
+		this.changeFunc = changeFunc;
+	}
 	render() {
 		const addButton = function addButton() {
 			return <button type='submit'>Add</button>;
@@ -27,6 +32,7 @@ class Form extends Component {
 			return <button type='button'>Remove</button>;
 		};
 
+		const changeFunc = this.changeFunc;
 		// Each of these indices is in charge of the inputs inside their corresponding component.
 		// We'll use this to monitor state of each input's value.
 		// Hmm can a component only have one state? Need to read more docs about state and understand it better before proceeding.
@@ -45,6 +51,7 @@ class Form extends Component {
 						'Description',
 						'imgFiler',
 					]}
+					changeFunc={changeFunc}
 				/>
 				<InformationHeaderRows
 					title='Work Experience'

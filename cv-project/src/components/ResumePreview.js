@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import ResumePreviewHeaderRows from './ResumePreviewHeaderRows';
 
 class ResumePreview extends Component {
-	constructor({}) {
+	constructor({ informationState }) {
 		super();
+
+		this.information = informationState;
 	}
 
 	render() {
@@ -14,31 +16,37 @@ class ResumePreview extends Component {
 			</div>
 		);
 
-		const formsArray = document.querySelectorAll('.form');
-		const [
-			personalInformationInputs,
-			workExperienceInputs,
-			educationInputs,
-			certificationInputs,
-			techStackInputs,
-			skillsInputs,
-			passionsInputs,
-		] = formsArray;
-
 		// information needs to render the values inside an input. This means that it would be consistently mapping over the appropriate array.
 		// For example, we would be consistently mapping over personalInformationInputs' values
+
+		// const informationTree = {
+		// 	personalInformation: [
+		// 		'Name',
+		// 		'Title',
+		// 		'Address',
+		// 		'Email',
+		// 		'Phone number',
+		// 		'Description',
+		// 	],
+		// 	workExperienceInformation: ['Position', 'Company', 'City'],
+		// 	educationInformation: ['University name', 'City', 'Degree'],
+		// 	certificationInformation: ['Certification Example'],
+		// 	techStackInformation: ['CSS', 'HTML'],
+		// 	skillsInformation: ['Customer service'],
+		// 	passionsInformation: ['Snowboarding', 'Bouldering'],
+		// };
+
+		// First pass down informationTree from constructor.
+		// Then the appropriate keys will be used in each <ResumePreviewHeaderRows> information attribute.
+		// I think the passed down variable should be a function that returns informationTree.
+
+		const informationTree = this.information;
+		// console.log(this.information.personalInformation);
 		return (
 			<div id='resume-preview'>
 				<ResumePreviewHeaderRows
 					title='Personal Information'
-					information={[
-						'Name',
-						'Title',
-						'Address',
-						'Email',
-						'Phone number',
-						'Description',
-					]}
+					information={informationTree.personalInformation}
 					personalImage={profileImage}
 				/>
 				<ResumePreviewHeaderRows

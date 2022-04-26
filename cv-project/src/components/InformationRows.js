@@ -7,7 +7,7 @@ import uniqid from 'uniqid';
 // -> I guess it could be some component which takes the attributes and renders them.
 
 class InformationRows extends Component {
-	constructor({ information, imgFiler, addBtn, removeBtn }) {
+	constructor({ information, imgFiler, addBtn, removeBtn, change }) {
 		super();
 
 		this.information = information;
@@ -15,6 +15,7 @@ class InformationRows extends Component {
 		this.imgFile = imgFiler;
 		this.addBtn = addBtn;
 		this.removeBtn = removeBtn;
+		this.change = change;
 	}
 
 	render() {
@@ -22,6 +23,7 @@ class InformationRows extends Component {
 		const imgFiler = this.imgFiler;
 		const addButton = this.addBtn;
 		const removeButton = this.removeBtn;
+		const change = this.change;
 
 		const listOfInformation = information.map((info) => {
 			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
@@ -35,7 +37,12 @@ class InformationRows extends Component {
 			}
 			return (
 				<li key={properId}>
-					<input type='text' placeholder={info} id={properId}></input>
+					<input
+						type='text'
+						placeholder={info}
+						id={properId}
+						onChange={change}
+					></input>
 					{imgFiler}
 				</li>
 			);
