@@ -21,3 +21,5 @@ class ResumePreviewHeaderRows extends Component {
 		);
 	}
 }
+
+export default ResumePreviewHeaderRows;

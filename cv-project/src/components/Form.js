@@ -22,7 +22,7 @@ import InformationRows from './InformationRows';
 class Form extends Component {
 	render() {
 		return (
-			<div>
+			<div id='form-container'>
 				<InformationHeaderRows
 					title='Personal Information'
 					info={[
