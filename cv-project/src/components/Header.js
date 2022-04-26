@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
+	constructor({ title }) {
+		super();
+
+		this.title = title;
+	}
+
 	render() {
-		return <div className='header'>CV App</div>;
+		const title = this.title;
+
+		return <header className='header'>{title}</header>;
 	}
 }
 
