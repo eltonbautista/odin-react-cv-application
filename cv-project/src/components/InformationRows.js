@@ -23,7 +23,6 @@ class InformationRows extends Component {
 		const addButton = this.addBtn;
 		const removeButton = this.removeBtn;
 
-		// let keyer = 0;
 		const listOfInformation = information.map((info) => {
 			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			if (info === 'imgFiler') {

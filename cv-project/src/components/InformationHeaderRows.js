@@ -16,9 +16,11 @@ class InformationHeaderRows extends Component {
 		const info = this.info;
 		const addBtn = this.addBtn;
 		const removeBtn = this.removeBtn;
+		const properId =
+			title.toLowerCase().replaceAll(' ', '-') + '-information-header';
 
 		return (
-			<div className={title}>
+			<div id={properId}>
 				<p>{title}</p>
 				<InformationRows
 					information={info}
