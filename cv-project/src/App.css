@@ -29,23 +29,36 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+
+/* APP STYLING */
+
+
 #app {
     display: grid;
     grid-template-areas: 
     'header header'
     'form preview';
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 0.9fr 1fr;
 }
+
+/* HEADER */
 
 #app > header {
     grid-area: header;
     font-size: 40px;
 }
 
+/* FORM */
+
 #app > div:first-child {
     grid-area: form;
+    background: grey;
+    font-size: 16px;
 }
+
+/* RESUME PREVIEW */
 
 #app > div:last-child {
     grid-area: preview;
+    background: rgb(207, 202, 202);
 }

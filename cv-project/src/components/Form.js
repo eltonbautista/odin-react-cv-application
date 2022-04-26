@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 // import App from '../App';
 import InformationHeaderRows from './InformationHeaderRows';
-import InformationRows from './InformationRows';
 // Okay so we have these FormSubComponents, then each one of them will have specific attributes.
 // Each attribute will create a new <li>{attribute}</li> inside of them (through the FormSubComponent.js)
 // Example: <FormSubComponents title='Personal Information' attrOne='Name' attrTwo='Email' attrThree='Phone number' />
@@ -21,6 +20,13 @@ import InformationRows from './InformationRows';
 
 class Form extends Component {
 	render() {
+		const addButton = function addButton() {
+			return <button type='submit'>Add</button>;
+		};
+		const removeButton = function removeButton() {
+			return <button type='button'>Remove</button>;
+		};
+
 		return (
 			<div id='form-container'>
 				<InformationHeaderRows
@@ -39,21 +45,41 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Experience'
 					info={['Posiion', 'Company', 'City', 'From', 'To']}
-					rend={true}
+					addBtn={addButton()}
+					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Education'
 					info={['University name', 'City', 'Degree', 'From', 'To']}
+					addBtn={addButton()}
+					removeBtn={removeButton()}
 				/>
 
 				<InformationHeaderRows
 					title='Certification'
 					info={['Certifications']}
+					addBtn={addButton()}
+					removeBtn={removeButton()}
 				/>
 
-				<InformationHeaderRows title='Tech Stack' info={['Technologies']} />
-				<InformationHeaderRows title='Skills' info={['Skills']} />
-				<InformationHeaderRows title='Passions' info={['Passions']} />
+				<InformationHeaderRows
+					title='Tech Stack'
+					info={['Technologies']}
+					addBtn={addButton()}
+					removeBtn={removeButton()}
+				/>
+				<InformationHeaderRows
+					title='Skills'
+					info={['Skills']}
+					addBtn={addButton()}
+					removeBtn={removeButton()}
+				/>
+				<InformationHeaderRows
+					title='Passions'
+					info={['Passions']}
+					addBtn={addButton()}
+					removeBtn={removeButton()}
+				/>
 			</div>
 		);
 	}
