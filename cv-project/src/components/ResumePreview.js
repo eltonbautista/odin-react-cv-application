@@ -16,30 +16,6 @@ class ResumePreview extends Component {
 			</div>
 		);
 
-		// information needs to render the values inside an input. This means that it would be consistently mapping over the appropriate array.
-		// For example, we would be consistently mapping over personalInformationInputs' values
-
-		// const informationTree = {
-		// 	personalInformation: [
-		// 		'Name',
-		// 		'Title',
-		// 		'Address',
-		// 		'Email',
-		// 		'Phone number',
-		// 		'Description',
-		// 	],
-		// 	workExperienceInformation: ['Position', 'Company', 'City'],
-		// 	educationInformation: ['University name', 'City', 'Degree'],
-		// 	certificationInformation: ['Certification Example'],
-		// 	techStackInformation: ['CSS', 'HTML'],
-		// 	skillsInformation: ['Customer service'],
-		// 	passionsInformation: ['Snowboarding', 'Bouldering'],
-		// };
-
-		// First pass down informationTree from constructor.
-		// Then the appropriate keys will be used in each <ResumePreviewHeaderRows> information attribute.
-		// I think the passed down variable should be a function that returns informationTree.
-
 		const informationTree = this.information;
 		// console.log(this.information.personalInformation);
 		return (
