@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ResumePreviewHeaderRows from './ResumePreviewHeaderRows';
 
 class ResumePreview extends Component {
 	constructor({}) {
@@ -6,6 +7,21 @@ class ResumePreview extends Component {
 	}
 
 	render() {
-		return <div id='resume-preview'></div>;
+		const profileImage = (
+			<div className='personal-image'>
+				{' '}
+				<img alt='profile'></img>{' '}
+			</div>
+		);
+		return (
+			<div id='resume-preview'>
+				<ResumePreviewHeaderRows
+					information={['Name', 'Email', 'Phone number']}
+					personalImage={profileImage}
+				/>
+			</div>
+		);
 	}
 }
+
+export default ResumePreview;

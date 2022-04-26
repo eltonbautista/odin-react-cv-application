@@ -39,7 +39,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 #app > header {
     grid-area: header;
-    /* font-size: min(40ox, 0.2vh); */
+    font-size: 40px;
 }
 
 #app > div:first-child {
