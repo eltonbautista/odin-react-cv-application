@@ -4,10 +4,6 @@ import Form from './components/Form';
 import ResumePreview from './components/ResumePreview';
 import Header from './components/Header';
 
-// function App() {
-// 	return <div className='App'></div>;
-// }
-
 class App extends Component {
 	constructor() {
 		super();
@@ -21,8 +17,8 @@ class App extends Component {
 				'Phone number',
 				'Description',
 			],
-			workExperienceInformation: ['Position', 'Company', 'City'],
-			educationInformation: ['University name', 'City', 'Degree'],
+			workExperienceInformation: ['Position', 'Company', 'City', 'From', 'To'],
+			educationInformation: ['University name', 'City', 'Degree', 'From', 'To'],
 			certificationInformation: ['Certification Example'],
 			techStackInformation: ['CSS', 'HTML'],
 			skillsInformation: ['Customer service'],
@@ -31,16 +27,6 @@ class App extends Component {
 
 		this.personalInformationValues =
 			document.querySelector('#first-name-input');
-	}
-	// personalInformation's updated value should be equal to the input values of each input in personalInformationForm.
-	// Then it would be an array of all those input's values.
-	// personalInformationInputs = document.querySelectorAll(
-
-	fillValues(...pass) {
-		let arr = pass;
-		console.log(arr);
-		let foo = arr.map((x) => x);
-		console.log(foo);
 	}
 
 	updateState = (e) => {
