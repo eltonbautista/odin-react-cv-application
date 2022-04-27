@@ -17,7 +17,7 @@ class ResumePreview extends Component {
 		);
 
 		const informationTree = this.information;
-		// console.log(this.information.personalInformation);
+
 		return (
 			<div id='resume-preview'>
 				<ResumePreviewHeaderRows

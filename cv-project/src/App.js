@@ -28,18 +28,30 @@ class App extends Component {
 			skillsInformation: ['Customer service'],
 			passionsInformation: ['Snowboarding', 'Bouldering'],
 		};
+
+		this.forms = document.querySelectorAll('.ul-for-inputs');
 	}
+	// personalInformation's updated value should be equal to the input values of each input in personalInformationForm.
+	// Then it would be an array of all those input's values.
 
 	updateState() {
 		this.setState({ personalInformation: ['hello'] });
-		console.log(this.state);
 	}
 
 	render() {
 		// eslint-disable-next-line prettier/prettier
-		// const header = document.querySelector('#app > header');
-		// console.log(header.title);
+		const forms = this.forms;
 
+		const [
+			personalInformationForm,
+			workExperienceForm,
+			educationForm,
+			certificationForm,
+			techStackForm,
+			skillsForm,
+			passionsForm,
+		] = forms;
+		console.log(personalInformationForm);
 		return (
 			<div id='app'>
 				<Header title='CV Project App' />

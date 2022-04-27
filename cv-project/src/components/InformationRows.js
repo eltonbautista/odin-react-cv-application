@@ -7,26 +7,21 @@ import uniqid from 'uniqid';
 // -> I guess it could be some component which takes the attributes and renders them.
 
 class InformationRows extends Component {
-	constructor({ information, imgFiler, addBtn, removeBtn, change }) {
+	constructor(props) {
 		super();
 
-		this.information = information;
 		this.id = uniqid;
-		this.imgFile = imgFiler;
-		this.addBtn = addBtn;
-		this.removeBtn = removeBtn;
-		this.change = change;
+		this.props = props;
 	}
 
 	render() {
-		const information = this.information;
-		const imgFiler = this.imgFiler;
-		const addButton = this.addBtn;
-		const removeButton = this.removeBtn;
-		const change = this.change;
+		const { information, imgFiler, addBtn, removeBtn, change, classGrouping } =
+			this.props;
 
 		const listOfInformation = information.map((info) => {
 			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
+			const groupClassName = info.toLowerCase().replaceAll(' ', '-') + 'class';
+
 			if (info === 'imgFiler') {
 				return (
 					<li key={properId}>
@@ -42,6 +37,7 @@ class InformationRows extends Component {
 						placeholder={info}
 						id={properId}
 						onChange={change}
+						className={groupClassName}
 					></input>
 					{imgFiler}
 				</li>
@@ -50,10 +46,10 @@ class InformationRows extends Component {
 
 		return (
 			<form className='form'>
-				<ul>{listOfInformation}</ul>
+				<ul className='ul-for-inputs'>{listOfInformation}</ul>
 				{/* <button type='submit'>Add</button> */}
-				<>{addButton}</>
-				<>{removeButton}</>
+				<>{addBtn}</>
+				<>{removeBtn}</>
 			</form>
 		);
 	}
