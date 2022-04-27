@@ -10,7 +10,7 @@ class InformationRows extends Component {
 	constructor(props) {
 		super();
 
-		this.id = uniqid;
+		this.uniqid = uniqid;
 		this.props = props;
 	}
 
@@ -24,10 +24,9 @@ class InformationRows extends Component {
 			addExtraInformation,
 			classGrouping,
 		} = this.props;
-
+		let counter = 0;
 		const listOfInformation = information.map((info) => {
-			let uniqueKey = uniqid();
-			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
+			let properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			const groupClassName =
 				classGrouping.toLowerCase().replaceAll(' ', '-') + '-input';
 
@@ -39,8 +38,9 @@ class InformationRows extends Component {
 					</li>
 				);
 			}
+			counter += 1;
 			return (
-				<li key={properId}>
+				<li key={properId + counter}>
 					<input
 						type='text'
 						placeholder={info}
