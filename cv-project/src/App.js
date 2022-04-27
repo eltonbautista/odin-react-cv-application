@@ -29,11 +29,8 @@ class App extends Component {
 			passionsInformation: ['Snowboarding', 'Bouldering'],
 		};
 
-		[...this.personalInformationInputs] = document.querySelectorAll(
-			'.personal-information-input'
-		);
-
-		this.personalInformationValues = [];
+		this.personalInformationValues =
+			document.querySelector('#first-name-input');
 	}
 	// personalInformation's updated value should be equal to the input values of each input in personalInformationForm.
 	// Then it would be an array of all those input's values.
@@ -47,7 +44,16 @@ class App extends Component {
 	}
 
 	updateState = (e) => {
-		this.setState({ personalInformation: ['hello'] });
+		const [...personalInformationInputs] = document.querySelectorAll(
+			'.personal-information-input'
+		);
+		let personalInfoArray = personalInformationInputs.map(
+			(input) => input.value
+		);
+
+		this.setState({
+			personalInformation: personalInfoArray,
+		});
 	};
 
 	render() {
