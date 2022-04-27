@@ -2,40 +2,22 @@
 import React, { Component } from 'react';
 // import App from '../App';
 import InformationHeaderRows from './InformationHeaderRows';
-// Okay so we have these FormSubComponents, then each one of them will have specific attributes.
-// Each attribute will create a new <li>{attribute}</li> inside of them (through the FormSubComponent.js)
-// Example: <FormSubComponents title='Personal Information' attrOne='Name' attrTwo='Email' attrThree='Phone number' />
-// This will then become an HTML that looks like this:
-/* <p>Personal Information</p>
-	<ul>
-		<li>
-			<label>{attrOne (Name:)}</label> <input></input>
-		</li>
-		<li>
-			<label>{attrTwo (Email:)}</label> <input></input>
-		</li>
-	</ul>
-*/
-// Right, so by adding attributes it will increase the amount of items in the descriptors array.
 
 class Form extends Component {
-	constructor({ changeFunc }) {
+	constructor(props) {
 		super();
 
-		this.changeFunc = changeFunc;
+		this.props = props;
 	}
 	render() {
+		const { updateState } = this.props;
+
 		const addButton = function addButton() {
 			return <button type='submit'>Add</button>;
 		};
 		const removeButton = function removeButton() {
 			return <button type='button'>Remove</button>;
 		};
-
-		const changeFunc = this.changeFunc;
-		// Each of these indices is in charge of the inputs inside their corresponding component.
-		// We'll use this to monitor state of each input's value.
-		// Hmm can a component only have one state? Need to read more docs about state and understand it better before proceeding.
 
 		return (
 			<div id='form-container'>
@@ -51,7 +33,7 @@ class Form extends Component {
 						'Description',
 						'imgFiler',
 					]}
-					changeFunc={changeFunc}
+					updateState={updateState}
 				/>
 				<InformationHeaderRows
 					title='Work Experience'

@@ -15,12 +15,19 @@ class InformationRows extends Component {
 	}
 
 	render() {
-		const { information, imgFiler, addBtn, removeBtn, change, classGrouping } =
-			this.props;
+		const {
+			information,
+			imgFiler,
+			addBtn,
+			removeBtn,
+			updateState,
+			classGrouping,
+		} = this.props;
 
 		const listOfInformation = information.map((info) => {
 			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
-			const groupClassName = info.toLowerCase().replaceAll(' ', '-') + 'class';
+			const groupClassName =
+				classGrouping.toLowerCase().replaceAll(' ', '-') + '-input';
 
 			if (info === 'imgFiler') {
 				return (
@@ -36,7 +43,7 @@ class InformationRows extends Component {
 						type='text'
 						placeholder={info}
 						id={properId}
-						onChange={change}
+						onChange={updateState}
 						className={groupClassName}
 					></input>
 					{imgFiler}

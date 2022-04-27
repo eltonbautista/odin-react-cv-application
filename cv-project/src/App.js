@@ -29,33 +29,62 @@ class App extends Component {
 			passionsInformation: ['Snowboarding', 'Bouldering'],
 		};
 
-		this.forms = document.querySelectorAll('.ul-for-inputs');
+		[...this.personalInformationInputs] = document.querySelectorAll(
+			'.personal-information-input'
+		);
+
+		this.personalInformationValues = [];
 	}
 	// personalInformation's updated value should be equal to the input values of each input in personalInformationForm.
 	// Then it would be an array of all those input's values.
+	// personalInformationInputs = document.querySelectorAll(
 
-	updateState() {
-		this.setState({ personalInformation: ['hello'] });
+	fillValues(...pass) {
+		let arr = pass;
+		console.log(arr);
+		let foo = arr.map((x) => x);
+		console.log(foo);
 	}
+
+	updateState = (e) => {
+		this.setState({ personalInformation: ['hello'] });
+	};
 
 	render() {
 		// eslint-disable-next-line prettier/prettier
-		const forms = this.forms;
+		const arrayOfGroupedInputs = [];
+
+		const getInputs = function (...inputGroup) {
+			for (let input of inputGroup) {
+				arrayOfGroupedInputs.push([
+					document.querySelectorAll(`.${input}-input`),
+				]);
+			}
+		};
+		getInputs(
+			'personal-information',
+			'work-experience',
+			'education',
+			'certification',
+			'tech-stack',
+			'skills',
+			'passions'
+		);
 
 		const [
-			personalInformationForm,
-			workExperienceForm,
-			educationForm,
-			certificationForm,
-			techStackForm,
-			skillsForm,
-			passionsForm,
-		] = forms;
-		console.log(personalInformationForm);
+			personalInformationInputs,
+			workExperienceInputs,
+			educationInputs,
+			certificationInputs,
+			techStackInputs,
+			skillsInputs,
+			passionsInputs,
+		] = arrayOfGroupedInputs;
+
 		return (
 			<div id='app'>
 				<Header title='CV Project App' />
-				<Form changeFunc={() => this.updateState()} />
+				<Form updateState={this.updateState} />
 				<ResumePreview informationState={this.state} />
 			</div>
 		);

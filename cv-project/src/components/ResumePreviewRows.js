@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 class ResumePreviewRows extends Component {
-	constructor({ information }) {
+	constructor(props) {
 		super();
 
-		this.information = information;
+		this.props = props;
 	}
 
 	render() {
-		const information = this.information;
+		const { information } = this.props;
 
 		const listOfInformation = information.map((info) => {
 			const properId = info.toLowerCase().replaceAll(' ', '-') + '-preview';

@@ -2,24 +2,19 @@ import React, { Component } from 'react';
 import InformationRows from './InformationRows';
 
 class InformationHeaderRows extends Component {
-	constructor({ title, info, addBtn, removeBtn, changeFunc }) {
+	constructor(props) {
 		super();
 
-		this.title = title;
-		this.info = info;
-		this.addBtn = addBtn;
-		this.removeBtn = removeBtn;
-		this.changeFunc = changeFunc;
+		this.props = props;
 	}
 
 	render() {
-		const title = this.title;
-		const info = this.info;
-		const addBtn = this.addBtn;
-		const removeBtn = this.removeBtn;
+		const { title, info, addBtn, removeBtn, updateState } = this.props;
+		// console.log(this.props);
+
 		const properId =
 			title.toLowerCase().replaceAll(' ', '-') + '-information-header';
-		const changeFunc = this.changeFunc;
+		// console.log(updateState);
 		return (
 			<div id={properId}>
 				<p>{title}</p>
@@ -27,7 +22,8 @@ class InformationHeaderRows extends Component {
 					information={info}
 					addBtn={addBtn}
 					removeBtn={removeBtn}
-					change={changeFunc}
+					updateState={updateState}
+					classGrouping={title}
 				/>
 			</div>
 		);

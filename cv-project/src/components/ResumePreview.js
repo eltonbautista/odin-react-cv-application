@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import ResumePreviewHeaderRows from './ResumePreviewHeaderRows';
 
 class ResumePreview extends Component {
-	constructor({ informationState }) {
+	constructor(props) {
 		super();
 
-		this.information = informationState;
+		this.props = props;
 	}
 
 	render() {
+		const { informationState } = this.props;
+		// console.log(informationState.personalInformation);
 		const profileImage = (
 			<div className='personal-image'>
 				{' '}
@@ -16,13 +18,12 @@ class ResumePreview extends Component {
 			</div>
 		);
 
-		const informationTree = this.information;
-
+		// console.log(informationTree);
 		return (
 			<div id='resume-preview'>
 				<ResumePreviewHeaderRows
 					title='Personal Information'
-					information={informationTree.personalInformation}
+					information={informationState.personalInformation}
 					personalImage={profileImage}
 				/>
 				<ResumePreviewHeaderRows

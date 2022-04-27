@@ -2,18 +2,14 @@ import React, { Component } from 'react';
 import ResumePreviewRows from './ResumePreviewRows';
 
 class ResumePreviewHeaderRows extends Component {
-	constructor({ title, information, personalImage }) {
+	constructor(props) {
 		super();
 
-		this.title = title;
-		this.information = information;
-		this.personalImage = personalImage;
+		this.props = props;
 	}
 
 	render() {
-		const title = this.title;
-		const information = this.information;
-		const personalImage = this.personalImage;
+		const { title, information, personalImage } = this.props;
 
 		return (
 			<div>
