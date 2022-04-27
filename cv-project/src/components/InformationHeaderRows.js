@@ -9,7 +9,14 @@ class InformationHeaderRows extends Component {
 	}
 
 	render() {
-		const { title, info, addBtn, removeBtn, updateResume } = this.props;
+		const {
+			title,
+			info,
+			addBtn,
+			removeBtn,
+			updateResume,
+			addExtraInformation,
+		} = this.props;
 		// console.log(this.props);
 
 		const properId =
@@ -20,9 +27,10 @@ class InformationHeaderRows extends Component {
 				<p>{title}</p>
 				<InformationRows
 					information={info}
-					addBtn={addBtn}
-					removeBtn={removeBtn}
 					updateResume={updateResume}
+					addBtn={addBtn}
+					addExtraInformation={addExtraInformation}
+					removeBtn={removeBtn}
 					classGrouping={title}
 				/>
 			</div>

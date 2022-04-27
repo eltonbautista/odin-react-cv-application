@@ -10,7 +10,7 @@ class Form extends Component {
 		this.props = props;
 	}
 	render() {
-		const { updateResume } = this.props;
+		const { updateResume, addExtraInformation, informationState } = this.props;
 
 		const addButton = function addButton() {
 			return <button type='submit'>Add</button>;
@@ -18,65 +18,61 @@ class Form extends Component {
 		const removeButton = function removeButton() {
 			return <button type='button'>Remove</button>;
 		};
-
 		return (
 			<div id='form-container'>
 				<InformationHeaderRows
 					title='Personal Information'
-					info={[
-						'First Name',
-						'Last Name',
-						'Title',
-						'Address',
-						'Email',
-						'Phone number',
-						'Description',
-						'imgFiler',
-					]}
+					info={informationState.personalInformationInputs}
 					updateResume={updateResume}
 				/>
 				<InformationHeaderRows
 					title='Work Experience'
-					info={['Position', 'Company', 'City', 'From', 'To']}
+					info={informationState.workExperienceInformationInputs}
 					updateResume={updateResume}
 					addBtn={addButton()}
+					addExtraInformation={addExtraInformation}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Education'
-					info={['University name', 'City', 'Degree', 'From', 'To']}
+					info={informationState.educationInformationInputs}
 					updateResume={updateResume}
 					addBtn={addButton()}
+					addExtraInformation={addExtraInformation}
 					removeBtn={removeButton()}
 				/>
 
 				<InformationHeaderRows
 					title='Certification'
-					info={['Certifications']}
+					info={informationState.certificationInformationInputs}
 					updateResume={updateResume}
 					addBtn={addButton()}
+					addExtraInformation={addExtraInformation}
 					removeBtn={removeButton()}
 				/>
 
 				<InformationHeaderRows
 					title='Tech Stack'
-					info={['Technologies']}
+					info={informationState.techStackInformationInputs}
 					updateResume={updateResume}
 					addBtn={addButton()}
+					addExtraInformation={addExtraInformation}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Skills'
-					info={['Skills']}
+					info={informationState.skillsInformationInputs}
 					updateResume={updateResume}
 					addBtn={addButton()}
+					addExtraInformation={addExtraInformation}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Passions'
-					info={['Passions']}
+					info={informationState.passionsInformationInputs}
 					updateResume={updateResume}
 					addBtn={addButton()}
+					addExtraInformation={addExtraInformation}
 					removeBtn={removeButton()}
 				/>
 			</div>

@@ -17,13 +17,14 @@ class InformationRows extends Component {
 	render() {
 		const {
 			information,
+			updateResume,
 			imgFiler,
 			addBtn,
 			removeBtn,
-			updateResume,
+			addExtraInformation,
 			classGrouping,
 		} = this.props;
-
+		let uniqueKey = uniqid();
 		const listOfInformation = information.map((info) => {
 			const properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			const groupClassName =
@@ -38,7 +39,7 @@ class InformationRows extends Component {
 				);
 			}
 			return (
-				<li key={properId}>
+				<li key={(uniqueKey += 1)}>
 					<input
 						type='text'
 						placeholder={info}
@@ -52,7 +53,7 @@ class InformationRows extends Component {
 		});
 
 		return (
-			<form className='form'>
+			<form onSubmit={addExtraInformation} className='form'>
 				<ul className='ul-for-inputs'>{listOfInformation}</ul>
 				{/* <button type='submit'>Add</button> */}
 				<>{addBtn}</>
