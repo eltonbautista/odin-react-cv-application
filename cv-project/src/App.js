@@ -44,24 +44,11 @@ class App extends Component {
 	}
 
 	updateState = (e) => {
-		const [...personalInformationInputs] = document.querySelectorAll(
-			'.personal-information-input'
-		);
-		let personalInfoArray = personalInformationInputs.map(
-			(input) => input.value
-		);
-
-		this.setState({
-			personalInformation: personalInfoArray,
-		});
-	};
-
-	render() {
-		// eslint-disable-next-line prettier/prettier
 		const arrayOfGroupedInputs = [];
 
 		const getInputs = function (...inputGroup) {
-			for (let input of inputGroup) {
+			const [...fixedInputs] = inputGroup;
+			for (let input of fixedInputs) {
 				arrayOfGroupedInputs.push([
 					document.querySelectorAll(`.${input}-input`),
 				]);
@@ -86,6 +73,29 @@ class App extends Component {
 			skillsInputs,
 			passionsInputs,
 		] = arrayOfGroupedInputs;
+
+		// const [...personalInformationInput] = document.querySelectorAll(
+		// 	'.personal-information-input'
+		// );
+		// console.log([...personalInformationInputs[0]].map((input) => input.value));
+
+		const informationArrayFunction = function (arrayName) {
+			return [...arrayName[0]].map((input) => input.value);
+		};
+
+		this.setState({
+			personalInformation: informationArrayFunction(personalInformationInputs),
+			workExperienceInformation: informationArrayFunction(workExperienceInputs),
+			educationInformation: informationArrayFunction(educationInputs),
+			certificationInformation: informationArrayFunction(certificationInputs),
+			techStackInformation: informationArrayFunction(techStackInputs),
+			skillsInformation: informationArrayFunction(skillsInputs),
+			passionsInformation: informationArrayFunction(passionsInputs),
+		});
+	};
+
+	render() {
+		// eslint-disable-next-line prettier/prettier
 
 		return (
 			<div id='app'>
