@@ -9,7 +9,14 @@ class App extends Component {
 		super();
 
 		this.state = {
-			personalInformation: [''],
+			personalInformation: [
+				'Name',
+				'Title',
+				'Address',
+				'Email',
+				'Phone number',
+				'Description',
+			],
 			workExperienceInformation: [''],
 			educationInformation: [''],
 			certificationInformation: [''],
