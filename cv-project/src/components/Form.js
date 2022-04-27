@@ -38,12 +38,14 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Work Experience'
 					info={['Position', 'Company', 'City', 'From', 'To']}
+					updateState={updateState}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Education'
 					info={['University name', 'City', 'Degree', 'From', 'To']}
+					updateState={updateState}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
@@ -51,6 +53,7 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Certification'
 					info={['Certifications']}
+					updateState={updateState}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
@@ -58,18 +61,21 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Tech Stack'
 					info={['Technologies']}
+					updateState={updateState}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Skills'
 					info={['Skills']}
+					updateState={updateState}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Passions'
 					info={['Passions']}
+					updateState={updateState}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>

@@ -28,27 +28,27 @@ class ResumePreview extends Component {
 				/>
 				<ResumePreviewHeaderRows
 					title='Work Experience'
-					information={['Position', 'Company', 'City']}
+					information={informationState.workExperienceInformation}
 				/>
 				<ResumePreviewHeaderRows
 					title='Education'
-					information={['University name', 'City', 'Degree']}
+					information={informationState.educationInformation}
 				/>
 				<ResumePreviewHeaderRows
 					title='Certification'
-					information={['Certification Example']}
+					information={informationState.certificationInformation}
 				/>
 				<ResumePreviewHeaderRows
 					title='Tech Stack'
-					information={['CSS', 'HTML']}
+					information={informationState.techStackInformation}
 				/>
 				<ResumePreviewHeaderRows
 					title='Skills'
-					information={['Customer service']}
+					information={informationState.skillsInformation}
 				/>
 				<ResumePreviewHeaderRows
 					title='Passions'
-					information={['Snowboarding', 'Bouldering']}
+					information={informationState.passionsInformation}
 				/>
 			</div>
 		);
