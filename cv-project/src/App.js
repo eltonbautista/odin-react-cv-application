@@ -9,7 +9,15 @@ class App extends Component {
 		super();
 
 		this.state = {
-			personalInformation: [
+			personalInformation: [''],
+			workExperienceInformation: [''],
+			educationInformation: [''],
+			certificationInformation: [''],
+			techStackInformation: [''],
+			skillsInformation: [''],
+			passionsInformation: [''],
+
+			personalInformationInputs: [
 				'Name',
 				'Title',
 				'Address',
@@ -17,12 +25,24 @@ class App extends Component {
 				'Phone number',
 				'Description',
 			],
-			workExperienceInformation: ['Position', 'Company', 'City', 'From', 'To'],
-			educationInformation: ['University name', 'City', 'Degree', 'From', 'To'],
-			certificationInformation: ['Certification Example'],
-			techStackInformation: ['CSS', 'HTML'],
-			skillsInformation: ['Customer service'],
-			passionsInformation: ['Snowboarding', 'Bouldering'],
+			workExperienceInformationInputs: [
+				'Position',
+				'Company',
+				'City',
+				'From',
+				'To',
+			],
+			educationInformationInputs: [
+				'University name',
+				'City',
+				'Degree',
+				'From',
+				'To',
+			],
+			certificationInformationInputs: ['Certification Example'],
+			techStackInformationInputs: ['CSS', 'HTML'],
+			skillsInformationInputs: ['Customer service'],
+			passionsInformationInputs: ['Snowboarding', 'Bouldering'],
 		};
 
 		this.personalInformationValues =
@@ -80,13 +100,35 @@ class App extends Component {
 		});
 	};
 
+	addExtraInformation = (e) => {
+		e.preventDefault();
+		const submitButtons = document.querySelectorAll("button[type='submit']");
+		// console.log(this.state.personalInformationInputs);
+
+		const pushInformation = function (informationInput) {
+			informationInput.forEach((input) => {
+				informationInput.push(input);
+			});
+			return informationInput;
+		};
+		this.setState({
+			workExperienceInformationInputs: pushInformation(
+				this.state.workExperienceInformationInputs
+			),
+		});
+	};
+
 	render() {
 		// eslint-disable-next-line prettier/prettier
 
 		return (
 			<div id='app'>
 				<Header title='CV Project App' />
-				<Form updateResume={this.updateResume} />
+				<Form
+					updateResume={this.updateResume}
+					addExtraInformation={this.addExtraInformation}
+					informationState={this.state}
+				/>
 				<ResumePreview informationState={this.state} />
 			</div>
 		);
