@@ -29,7 +29,7 @@ class App extends Component {
 			document.querySelector('#first-name-input');
 	}
 
-	updateState = (e) => {
+	updateResume = (e) => {
 		const arrayOfGroupedInputs = [];
 
 		const getInputs = function (...inputGroup) {
@@ -86,7 +86,7 @@ class App extends Component {
 		return (
 			<div id='app'>
 				<Header title='CV Project App' />
-				<Form updateState={this.updateState} />
+				<Form updateResume={this.updateResume} />
 				<ResumePreview informationState={this.state} />
 			</div>
 		);

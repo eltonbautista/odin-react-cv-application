@@ -10,7 +10,7 @@ class Form extends Component {
 		this.props = props;
 	}
 	render() {
-		const { updateState } = this.props;
+		const { updateResume } = this.props;
 
 		const addButton = function addButton() {
 			return <button type='submit'>Add</button>;
@@ -33,19 +33,19 @@ class Form extends Component {
 						'Description',
 						'imgFiler',
 					]}
-					updateState={updateState}
+					updateResume={updateResume}
 				/>
 				<InformationHeaderRows
 					title='Work Experience'
 					info={['Position', 'Company', 'City', 'From', 'To']}
-					updateState={updateState}
+					updateResume={updateResume}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Education'
 					info={['University name', 'City', 'Degree', 'From', 'To']}
-					updateState={updateState}
+					updateResume={updateResume}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
@@ -53,7 +53,7 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Certification'
 					info={['Certifications']}
-					updateState={updateState}
+					updateResume={updateResume}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
@@ -61,21 +61,21 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Tech Stack'
 					info={['Technologies']}
-					updateState={updateState}
+					updateResume={updateResume}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Skills'
 					info={['Skills']}
-					updateState={updateState}
+					updateResume={updateResume}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>
 				<InformationHeaderRows
 					title='Passions'
 					info={['Passions']}
-					updateState={updateState}
+					updateResume={updateResume}
 					addBtn={addButton()}
 					removeBtn={removeButton()}
 				/>

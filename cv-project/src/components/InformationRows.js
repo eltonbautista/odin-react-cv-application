@@ -20,7 +20,7 @@ class InformationRows extends Component {
 			imgFiler,
 			addBtn,
 			removeBtn,
-			updateState,
+			updateResume,
 			classGrouping,
 		} = this.props;
 
@@ -43,7 +43,7 @@ class InformationRows extends Component {
 						type='text'
 						placeholder={info}
 						id={properId}
-						onChange={updateState}
+						onChange={updateResume}
 						className={groupClassName}
 					></input>
 					{imgFiler}
