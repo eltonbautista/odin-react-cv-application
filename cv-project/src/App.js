@@ -113,11 +113,48 @@ class App extends Component {
 			});
 			return informationInput;
 		};
-		this.setState({
-			workExperienceInformationInputs: pushInformation(
-				this.state.workExperienceInformationInputs
-			),
-		});
+		const target = e.target;
+		const name = target.name;
+		if (name === 'workExperienceInformationInputs') {
+			this.setState({
+				workExperienceInformationInputs: pushInformation(
+					this.state.workExperienceInformationInputs
+				),
+			});
+		} else if (name === 'educationInformationInputs') {
+			this.setState({
+				educationInformationInputs: pushInformation(
+					this.state.educationInformationInputs
+				),
+			});
+		} else if (name === 'certificationInformationInputs') {
+			this.setState({
+				certificationInformationInputs: pushInformation(
+					this.state.certificationInformationInputs
+				),
+			});
+		} else if (name === 'techStackInformationInputs') {
+			this.setState({
+				techStackInformationInputs: pushInformation(
+					this.state.techStackInformationInputs
+				),
+			});
+		} else if (name === 'skillsInformationInputs') {
+			this.setState({
+				skillsInformationInputs: pushInformation(
+					this.state.skillsInformationInputs
+				),
+			});
+		} else if (name === 'passionsInformationInputs') {
+			this.setState({
+				passionsInformationInputs: pushInformation(
+					this.state.passionsInformationInputs
+				),
+			});
+		}
+		// this.setState({
+		// 	[name]: pushInformation(this.state.name),
+		// });
 	};
 
 	render() {

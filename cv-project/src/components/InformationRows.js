@@ -26,7 +26,14 @@ class InformationRows extends Component {
 			classGrouping,
 		} = this.props;
 		let counter = 0;
-
+		// const namesArray = [
+		// 	'workExperienceInformationInputs',
+		// 	'educationInformationInputs',
+		// 	'certificationInformationInputs',
+		// 	'techStackInformationInputs',
+		// 	'skillsInformationInputs',
+		// 	'passionsInformationInputs',
+		// ];
 		const listOfInformation = information.map((info) => {
 			let properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			const groupClassName =
@@ -66,9 +73,18 @@ class InformationRows extends Component {
 				</li>
 			);
 		});
-
+		const name =
+			classGrouping[0].toLowerCase() +
+			classGrouping.substring(1).replaceAll(' ', '') +
+			'InformationInputs';
+		// console.log(information);
 		return (
-			<form onSubmit={addExtraInformation} className='form'>
+			<form
+				onSubmit={addExtraInformation}
+				name={name}
+				className='form'
+				info={information}
+			>
 				<ul className='ul-for-inputs'>{listOfInformation}</ul>
 				{/* <button type='submit'>Add</button> */}
 				<>{addBtn}</>
