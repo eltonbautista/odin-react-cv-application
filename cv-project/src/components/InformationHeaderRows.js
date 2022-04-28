@@ -11,6 +11,7 @@ class InformationHeaderRows extends Component {
 	render() {
 		const {
 			title,
+			value,
 			info,
 			addBtn,
 			removeBtn,
@@ -26,6 +27,7 @@ class InformationHeaderRows extends Component {
 			<div id={properId}>
 				<p>{title}</p>
 				<InformationRows
+					value={value}
 					information={info}
 					updateResume={updateResume}
 					addBtn={addBtn}

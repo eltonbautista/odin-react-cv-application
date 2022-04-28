@@ -17,6 +17,7 @@ class InformationRows extends Component {
 	render() {
 		const {
 			information,
+			value,
 			updateResume,
 			imgFiler,
 			addBtn,
@@ -25,6 +26,7 @@ class InformationRows extends Component {
 			classGrouping,
 		} = this.props;
 		let counter = 0;
+
 		const listOfInformation = information.map((info) => {
 			let properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			const groupClassName =
@@ -53,6 +55,7 @@ class InformationRows extends Component {
 			return (
 				<li key={properId + counter}>
 					<input
+						value={value[value.indexOf(info)]}
 						type='text'
 						placeholder={info}
 						id={properId}
