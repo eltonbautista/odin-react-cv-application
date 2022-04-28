@@ -24,10 +24,12 @@ class Form extends Component {
 					title='Personal Information'
 					info={informationState.personalInformationInputs}
 					updateResume={updateResume}
+					value={informationState.personalInformation}
 				/>
 				<InformationHeaderRows
 					title='Work Experience'
 					info={informationState.workExperienceInformationInputs}
+					value={informationState.workExperienceInformation}
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
@@ -36,6 +38,7 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Education'
 					info={informationState.educationInformationInputs}
+					value={informationState.educationInformation}
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
@@ -45,6 +48,7 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Certification'
 					info={informationState.certificationInformationInputs}
+					value={informationState.certificationInformation}
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
@@ -54,6 +58,7 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Tech Stack'
 					info={informationState.techStackInformationInputs}
+					value={informationState.techStackInformation}
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
@@ -62,6 +67,7 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Skills'
 					info={informationState.skillsInformationInputs}
+					value={informationState.skillsInformation}
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
@@ -70,6 +76,7 @@ class Form extends Component {
 				<InformationHeaderRows
 					title='Passions'
 					info={informationState.passionsInformationInputs}
+					value={informationState.passionsInformation}
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
