@@ -24,7 +24,7 @@ class InformationRows extends Component {
 			removeBtn,
 			addExtraInformation,
 			classGrouping,
-			handleRemoveButton,
+			// handleRemoveButton,
 		} = this.props;
 		let counter = 0;
 		// const namesArray = [

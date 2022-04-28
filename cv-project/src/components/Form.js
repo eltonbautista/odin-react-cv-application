@@ -20,9 +20,9 @@ class Form extends Component {
 		const addButton = function addButton() {
 			return <button type='submit'>Add</button>;
 		};
-		const removeButton = function removeButton() {
+		const removeButton = function removeButton(name) {
 			return (
-				<button onClick={handleRemoveButton} type='button'>
+				<button onClick={handleRemoveButton} name={name} type='button'>
 					Remove
 				</button>
 			);
@@ -42,7 +42,7 @@ class Form extends Component {
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton()}
+					removeBtn={removeButton('workExperienceInformationRemoveButton')}
 					handleRemoveButton={handleRemoveButton}
 				/>
 				<InformationHeaderRows
@@ -52,7 +52,7 @@ class Form extends Component {
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton()}
+					removeBtn={removeButton('educationInformationRemoveButton')}
 				/>
 
 				<InformationHeaderRows
@@ -62,7 +62,7 @@ class Form extends Component {
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton()}
+					removeBtn={removeButton('certificationInformationRemoveButton')}
 				/>
 
 				<InformationHeaderRows
@@ -72,7 +72,7 @@ class Form extends Component {
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton()}
+					removeBtn={removeButton('techStackInformationRemoveButton')}
 				/>
 				<InformationHeaderRows
 					title='Skills'
@@ -81,7 +81,7 @@ class Form extends Component {
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton()}
+					removeBtn={removeButton('skillsInformationRemoveButton')}
 				/>
 				<InformationHeaderRows
 					title='Passions'
@@ -90,7 +90,7 @@ class Form extends Component {
 					updateResume={updateResume}
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton()}
+					removeBtn={removeButton('passionsInformationRemoveButton')}
 				/>
 			</div>
 		);

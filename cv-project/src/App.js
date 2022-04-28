@@ -142,13 +142,11 @@ class App extends Component {
 			originalStateInformationInput.forEach((input) => {
 				stateInformationInput.push(input);
 			});
-			console.log(stateInformationInput);
 			return stateInformationInput;
 		};
 		const target = e.target;
 		const name = target.name;
 		if (name === 'workExperienceInformationInputs') {
-			console.log(this.originalState.workExperienceInformationInputs);
 			this.setState({
 				workExperienceInformationInputs: pushInformation(
 					this.state.workExperienceInformationInputs,
@@ -194,58 +192,56 @@ class App extends Component {
 		// this.setState({
 		// 	[name]: pushInformation(this.state.name),
 		// });
-		console.log(this.state);
 	};
 
 	handleRemoveButton = (e) => {
-		const removeInformation = function (informationInput, removeLength) {
-			console.log(informationInput);
-			informationInput.splice(informationInput.length, removeLength);
-			console.log(informationInput);
+		const removeInformation = function (informationInput, removeArray) {
+			const spliceAt = -(informationInput.length - removeArray.length);
+			return informationInput.splice(spliceAt);
 		};
 		const target = e.target;
 		const name = target.name;
 
-		if (name === 'workExperienceInformationInputs') {
+		if (name === 'workExperienceInformationRemoveButton') {
 			this.setState({
 				workExperienceInformationInputs: removeInformation(
 					this.state.workExperienceInformationInputs,
-					this.state.workExperienceInformation
+					this.originalState.workExperienceInformationInputs
 				),
 			});
-		} else if (name === 'educationInformationInputs') {
+		} else if (name === 'educationInformationRemoveButton') {
 			this.setState({
 				educationInformationInputs: removeInformation(
 					this.state.educationInformationInputs,
-					this.state.educationInformation
+					this.originalState.educationInformationInputs
 				),
 			});
-		} else if (name === 'certificationInformationInputs') {
+		} else if (name === 'certificationInformationRemoveButton') {
 			this.setState({
 				certificationInformationInputs: removeInformation(
 					this.state.certificationInformationInputs,
-					this.state.certificationInformation
+					this.originalState.certificationInformationInputs
 				),
 			});
-		} else if (name === 'techStackInformationInputs') {
+		} else if (name === 'techStackInformationRemoveButton') {
 			this.setState({
 				techStackInformationInputs: removeInformation(
 					this.state.techStackInformationInputs,
-					this.state.techStackInformation
+					this.originalState.techStackInformationInputs
 				),
 			});
-		} else if (name === 'skillsInformationInputs') {
+		} else if (name === 'skillsInformationRemoveButton') {
 			this.setState({
 				skillsInformationInputs: removeInformation(
 					this.state.skillsInformationInputs,
-					this.state.skillsInformation
+					this.originalState.skillsInformationInputs
 				),
 			});
-		} else if (name === 'passionsInformationInputs') {
+		} else if (name === 'passionsInformationRemoveButton') {
 			this.setState({
 				passionsInformationInputs: removeInformation(
 					this.state.passionsInformationInputs,
-					this.state.passionsInformation
+					this.originalState.passionsInformationInputs
 				),
 			});
 		}
