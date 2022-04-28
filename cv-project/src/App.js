@@ -10,13 +10,41 @@ class App extends Component {
 
 		this.state = {
 			personalInformation: ['', '', '', '', '', ''],
-			workExperienceInformation: [''],
-			educationInformation: [''],
+			workExperienceInformation: ['', '', '', '', ''],
+			educationInformation: ['', '', '', '', ''],
 			certificationInformation: [''],
-			techStackInformation: [''],
+			techStackInformation: ['', ''],
 			skillsInformation: [''],
-			passionsInformation: [''],
+			passionsInformation: ['', ''],
 
+			personalInformationInputs: [
+				'Name',
+				'Title',
+				'Address',
+				'Email',
+				'Phone number',
+				'Description',
+			],
+			workExperienceInformationInputs: [
+				'Position',
+				'Company',
+				'City',
+				'From',
+				'To',
+			],
+			educationInformationInputs: [
+				'University name',
+				'City',
+				'Degree',
+				'From',
+				'To',
+			],
+			certificationInformationInputs: ['Certification Example'],
+			techStackInformationInputs: ['CSS', 'HTML'],
+			skillsInformationInputs: ['Customer service'],
+			passionsInformationInputs: ['Snowboarding', 'Bouldering'],
+		};
+		this.originalState = {
 			personalInformationInputs: [
 				'Name',
 				'Title',
@@ -104,57 +132,123 @@ class App extends Component {
 	// and passing it down to the appropriate submit buttons. Or maybe there is a way to make "addExtraInformation" reusable by changing its parameters
 	addExtraInformation = (e) => {
 		e.preventDefault();
-		const submitButtons = document.querySelectorAll("button[type='submit']");
+		// const submitButtons = document.querySelectorAll("button[type='submit']");
 		// console.log(this.state.personalInformationInputs);
 
-		const pushInformation = function (informationInput) {
-			informationInput.forEach((input) => {
-				informationInput.push(input);
+		const pushInformation = function (
+			stateInformationInput,
+			originalStateInformationInput
+		) {
+			originalStateInformationInput.forEach((input) => {
+				stateInformationInput.push(input);
 			});
-			return informationInput;
+			console.log(stateInformationInput);
+			return stateInformationInput;
 		};
 		const target = e.target;
 		const name = target.name;
 		if (name === 'workExperienceInformationInputs') {
+			console.log(this.originalState.workExperienceInformationInputs);
 			this.setState({
 				workExperienceInformationInputs: pushInformation(
-					this.state.workExperienceInformationInputs
+					this.state.workExperienceInformationInputs,
+					this.originalState.workExperienceInformationInputs
 				),
 			});
 		} else if (name === 'educationInformationInputs') {
 			this.setState({
 				educationInformationInputs: pushInformation(
-					this.state.educationInformationInputs
+					this.state.educationInformationInputs,
+					this.originalState.educationInformationInputs
 				),
 			});
 		} else if (name === 'certificationInformationInputs') {
 			this.setState({
 				certificationInformationInputs: pushInformation(
-					this.state.certificationInformationInputs
+					this.state.certificationInformationInputs,
+					this.originalState.certificationInformationInputs
 				),
 			});
 		} else if (name === 'techStackInformationInputs') {
 			this.setState({
 				techStackInformationInputs: pushInformation(
-					this.state.techStackInformationInputs
+					this.state.techStackInformationInputs,
+					this.originalState.techStackInformationInputs
 				),
 			});
 		} else if (name === 'skillsInformationInputs') {
 			this.setState({
 				skillsInformationInputs: pushInformation(
-					this.state.skillsInformationInputs
+					this.state.skillsInformationInputs,
+					this.originalState.skillsInformationInputs
 				),
 			});
 		} else if (name === 'passionsInformationInputs') {
 			this.setState({
 				passionsInformationInputs: pushInformation(
-					this.state.passionsInformationInputs
+					this.state.passionsInformationInputs,
+					this.originalState.passionsInformationInputs
 				),
 			});
 		}
 		// this.setState({
 		// 	[name]: pushInformation(this.state.name),
 		// });
+		console.log(this.state);
+	};
+
+	handleRemoveButton = (e) => {
+		const removeInformation = function (informationInput, removeLength) {
+			console.log(informationInput);
+			informationInput.splice(informationInput.length, removeLength);
+			console.log(informationInput);
+		};
+		const target = e.target;
+		const name = target.name;
+
+		if (name === 'workExperienceInformationInputs') {
+			this.setState({
+				workExperienceInformationInputs: removeInformation(
+					this.state.workExperienceInformationInputs,
+					this.state.workExperienceInformation
+				),
+			});
+		} else if (name === 'educationInformationInputs') {
+			this.setState({
+				educationInformationInputs: removeInformation(
+					this.state.educationInformationInputs,
+					this.state.educationInformation
+				),
+			});
+		} else if (name === 'certificationInformationInputs') {
+			this.setState({
+				certificationInformationInputs: removeInformation(
+					this.state.certificationInformationInputs,
+					this.state.certificationInformation
+				),
+			});
+		} else if (name === 'techStackInformationInputs') {
+			this.setState({
+				techStackInformationInputs: removeInformation(
+					this.state.techStackInformationInputs,
+					this.state.techStackInformation
+				),
+			});
+		} else if (name === 'skillsInformationInputs') {
+			this.setState({
+				skillsInformationInputs: removeInformation(
+					this.state.skillsInformationInputs,
+					this.state.skillsInformation
+				),
+			});
+		} else if (name === 'passionsInformationInputs') {
+			this.setState({
+				passionsInformationInputs: removeInformation(
+					this.state.passionsInformationInputs,
+					this.state.passionsInformation
+				),
+			});
+		}
 	};
 
 	render() {
@@ -166,6 +260,7 @@ class App extends Component {
 				<Form
 					updateResume={this.updateResume}
 					addExtraInformation={this.addExtraInformation}
+					handleRemoveButton={this.handleRemoveButton}
 					informationState={this.state}
 				/>
 				<ResumePreview informationState={this.state} />

@@ -10,13 +10,22 @@ class Form extends Component {
 		this.props = props;
 	}
 	render() {
-		const { updateResume, addExtraInformation, informationState } = this.props;
+		const {
+			updateResume,
+			addExtraInformation,
+			informationState,
+			handleRemoveButton,
+		} = this.props;
 
 		const addButton = function addButton() {
 			return <button type='submit'>Add</button>;
 		};
 		const removeButton = function removeButton() {
-			return <button type='button'>Remove</button>;
+			return (
+				<button onClick={handleRemoveButton} type='button'>
+					Remove
+				</button>
+			);
 		};
 		return (
 			<div id='form-container'>
@@ -34,6 +43,7 @@ class Form extends Component {
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
 					removeBtn={removeButton()}
+					handleRemoveButton={handleRemoveButton}
 				/>
 				<InformationHeaderRows
 					title='Education'

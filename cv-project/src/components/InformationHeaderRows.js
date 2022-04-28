@@ -17,6 +17,7 @@ class InformationHeaderRows extends Component {
 			removeBtn,
 			updateResume,
 			addExtraInformation,
+			handleRemoveButton,
 		} = this.props;
 		// console.log(this.props);
 
@@ -33,6 +34,7 @@ class InformationHeaderRows extends Component {
 					addBtn={addBtn}
 					addExtraInformation={addExtraInformation}
 					removeBtn={removeBtn}
+					handleRemoveButton={handleRemoveButton}
 					classGrouping={title}
 				/>
 			</div>
