@@ -37,6 +37,17 @@ class InformationRows extends Component {
 						<input type='file'></input>
 					</li>
 				);
+			} else if (info === 'Description') {
+				return (
+					<li key={properId}>
+						<textarea
+							placeholder={info}
+							onChange={updateResume}
+							className={groupClassName}
+							id={properId}
+						></textarea>
+					</li>
+				);
 			}
 			counter += 1;
 			return (

@@ -107,6 +107,8 @@ class App extends Component {
 		});
 	};
 
+	// Could resolve the issue of the follow function always adding onto workExperienceInformationInputs by creating separate "addExtraInformation" functions
+	// and passing it down to the appropriate submit buttons. Or maybe there is a way to make "addExtraInformation" reusable by changing its parameters
 	addExtraInformation = (e) => {
 		e.preventDefault();
 		const submitButtons = document.querySelectorAll("button[type='submit']");
