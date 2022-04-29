@@ -17,13 +17,10 @@ class InformationHeaderRows extends Component {
 			removeBtn,
 			updateResume,
 			addExtraInformation,
-			// handleRemoveButton,
 		} = this.props;
-		// console.log(this.props);
 
 		const properId =
 			title.toLowerCase().replaceAll(' ', '-') + '-information-header';
-		// console.log(updateState);
 		return (
 			<div id={properId}>
 				<p>{title}</p>
@@ -34,7 +31,6 @@ class InformationHeaderRows extends Component {
 					addBtn={addBtn}
 					addExtraInformation={addExtraInformation}
 					removeBtn={removeBtn}
-					// handleRemoveButton={handleRemoveButton}
 					classGrouping={title}
 				/>
 			</div>

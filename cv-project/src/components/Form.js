@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 // import App from '../App';
 import InformationHeaderRows from './InformationHeaderRows';
-import uniqid from 'uniqid';
 
 class Form extends Component {
 	constructor(props) {

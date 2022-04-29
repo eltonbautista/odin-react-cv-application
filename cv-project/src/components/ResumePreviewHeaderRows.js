@@ -7,7 +7,6 @@ class ResumePreviewHeaderRows extends Component {
 
 		this.props = props;
 	}
-	// !! For adding extra information, need to figure out a way to dynamically create more ResumePreviewRows
 	render() {
 		const { title, information, personalImage } = this.props;
 

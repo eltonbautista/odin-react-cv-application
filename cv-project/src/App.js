@@ -173,7 +173,6 @@ class App extends Component {
 			return informationInput.splice(spliceAt);
 		};
 		const target = e.target;
-		const name = target.name;
 		const informationRender = target.getAttribute('information');
 		const informationInputsRender = target.getAttribute('informationinputs');
 

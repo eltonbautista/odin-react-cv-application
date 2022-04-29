@@ -10,7 +10,6 @@ class ResumePreview extends Component {
 
 	render() {
 		const { informationState } = this.props;
-		// console.log(informationState.personalInformation);
 		const profileImage = (
 			<div className='personal-image'>
 				{' '}
@@ -54,40 +53,7 @@ class ResumePreview extends Component {
 			return prev;
 		});
 
-		return (
-			<div id='resume-preview'>
-				{myResumePreviews}
-				{/* <ResumePreviewHeaderRows
-					title='Personal Information'
-					information={informationState.personalInformation}
-					personalImage={profileImage}
-				/>
-				<ResumePreviewHeaderRows
-					title='Work Experience'
-					information={informationState.workExperienceInformation}
-				/>
-				<ResumePreviewHeaderRows
-					title='Education'
-					information={informationState.educationInformation}
-				/>
-				<ResumePreviewHeaderRows
-					title='Certification'
-					information={informationState.certificationInformation}
-				/>
-				<ResumePreviewHeaderRows
-					title='Tech Stack'
-					information={informationState.techStackInformation}
-				/>
-				<ResumePreviewHeaderRows
-					title='Skills'
-					information={informationState.skillsInformation}
-				/>
-				<ResumePreviewHeaderRows
-					title='Passions'
-					information={informationState.passionsInformation}
-				/> */}
-			</div>
-		);
+		return <div id='resume-preview'>{myResumePreviews}</div>;
 	}
 }
 
