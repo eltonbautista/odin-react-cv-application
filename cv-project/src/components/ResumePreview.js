@@ -23,7 +23,7 @@ class ResumePreview extends Component {
 			const titles = [
 				'Work Experience',
 				'Education',
-				' Certification',
+				'Certification',
 				'Tech Stack',
 				'Skills',
 				'Passions',

@@ -3,7 +3,7 @@ import uniqid from 'uniqid';
 
 class InformationRows extends Component {
 	constructor(props) {
-		super();
+		super(props);
 
 		this.uniqid = uniqid;
 		this.props = props;
@@ -36,7 +36,7 @@ class InformationRows extends Component {
 				);
 			} else if (info === 'Description') {
 				return (
-					<li key={properId}>
+					<li key={properId + counter}>
 						<textarea
 							placeholder={info}
 							onChange={updateResume}

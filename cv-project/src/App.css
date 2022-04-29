@@ -69,11 +69,11 @@ p, h1, h2, h3, h4, h5, h6 {
 #resume-preview > div:nth-child(1) > p {
   visibility: hidden;
 }
+
+
 #resume-preview > div:nth-child(1){
   display: grid;
   grid-template-areas: 'information picture';
-  background-color: rgb(39, 42, 56);
-  color: wheat;
 }
 #resume-preview > div:nth-child(1) > div:nth-child(3) {
   grid-area: 'information';
@@ -81,18 +81,17 @@ p, h1, h2, h3, h4, h5, h6 {
 #resume-preview > div:nth-child(1) > div.personal-image {
   grid-area: 'picture';
 }
-/* #resume-preview > div:nth-child(1) > div:nth-child(3) > ul {
-  
-} */
+#resume-preview > div > div > ul {
+  padding-left: 3vw;
+}
 #resume-preview > div:nth-child(1) > div:nth-child(3) > ul > li {
   display: grid;
 }
 #resume-preview > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(5)::before {
   content: 'Profile';
-  padding-left: 1vh;
+  /* padding-left: 1vh; */
   font-size: 2.5vh;
   margin-bottom: 0.7vh;
-  color: wheat;
 }
 #resume-preview > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(5) {
   margin-top: 1.5vh;
@@ -105,9 +104,20 @@ p, h1, h2, h3, h4, h5, h6 {
   padding: 1vh;
   border-radius: 1vh;
   border: 2px solid red;
-  color:wheat;
 }
 
 #resume-preview > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(1) > div {
   font-size: 3em;
+}
+
+/* WORK EXPERIENCE */
+
+#resume-preview > div > div > ul > li {
+  display: grid;
+}
+
+#resume-preview > div > p {
+  font-size: 2.5vh;
+  padding-left: 3vw;
+  margin-top: 2vh;
 }
