@@ -13,9 +13,9 @@ class App extends Component {
 			workExperienceInformation: ['', '', '', '', ''],
 			educationInformation: ['', '', '', '', ''],
 			certificationInformation: [''],
-			techStackInformation: ['', ''],
+			techStackInformation: [''],
 			skillsInformation: [''],
-			passionsInformation: ['', ''],
+			passionsInformation: [''],
 
 			personalInformationInputs: [
 				'Name',
@@ -41,9 +41,9 @@ class App extends Component {
 				'To',
 			],
 			certificationInformationInputs: ['Certification Example'],
-			techStackInformationInputs: ['CSS', 'HTML'],
+			techStackInformationInputs: ['CSS'],
 			skillsInformationInputs: ['Customer service'],
-			passionsInformationInputs: ['Snowboarding', 'Bouldering'],
+			passionsInformationInputs: ['Snowboarding'],
 		};
 		this.originalState = {
 			personalInformationInputs: [
@@ -69,9 +69,9 @@ class App extends Component {
 				'To',
 			],
 			certificationInformationInputs: ['Certification Example'],
-			techStackInformationInputs: ['CSS', 'HTML'],
+			techStackInformationInputs: ['CSS'],
 			skillsInformationInputs: ['Customer service'],
-			passionsInformationInputs: ['Snowboarding', 'Bouldering'],
+			passionsInformationInputs: ['Snowboarding'],
 		};
 
 		this.personalInformationValues =
@@ -257,9 +257,9 @@ class App extends Component {
 		const name = target.name;
 		const informationRender = target.getAttribute('information');
 		const informationInputsRender = target.getAttribute('informationinputs');
-		console.log(informationRender);
-		console.log(name);
-		console.log(informationInputsRender);
+		// console.log(informationRender);
+		// console.log(name);
+		// console.log(informationInputsRender);
 
 		// if (name === 'workExperienceInformationRemoveButton') {
 		// 	this.setState({
@@ -328,8 +328,15 @@ class App extends Component {
 		// 		),
 		// 	});
 		// }
+		// console.log(this.state.passionsInformation);
+		// console.log(this.state[informationRender]);
+		// console.log(this.originalState.passionsInformationInputs);
+		// console.log(this.originalState[informationInputsRender]);
+		// console.log([name]);
+		// console.log([informationInputsRender]);
+		// console.log(informationRender);
 		this.setState({
-			[name]: removeInformation(
+			[informationInputsRender]: removeInformation(
 				this.state[informationInputsRender],
 				this.originalState[informationInputsRender]
 			),

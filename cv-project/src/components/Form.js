@@ -45,6 +45,8 @@ class Form extends Component {
 		const stateKeysInformationInputs = Object.keys(
 			this.props.informationState
 		).splice(8);
+		// console.log(stateKeysInformation);
+		// console.log(stateKeysInformationInputs);
 
 		const informationHeaderRows = function () {
 			const titles = [
