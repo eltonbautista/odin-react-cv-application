@@ -9,7 +9,7 @@ class App extends Component {
 		super();
 
 		this.state = {
-			personalInformation: ['', '', '', '', '', '', ''],
+			personalInformation: ['', '', '', '', '', ''],
 			workExperienceInformation: ['', '', '', '', ''],
 			educationInformation: ['', '', '', '', ''],
 			certificationInformation: [''],
@@ -19,7 +19,6 @@ class App extends Component {
 
 			personalInformationInputs: [
 				'Name',
-				'Title',
 				'Address',
 				'Email',
 				'Phone number',
@@ -48,7 +47,6 @@ class App extends Component {
 		this.originalState = {
 			personalInformationInputs: [
 				'Name',
-				'Title',
 				'Address',
 				'Email',
 				'Phone number',
