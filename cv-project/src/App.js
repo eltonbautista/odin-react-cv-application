@@ -9,7 +9,7 @@ class App extends Component {
 		super();
 
 		this.state = {
-			personalInformation: ['', '', '', '', '', ''],
+			personalInformation: ['', '', '', '', '', '', ''],
 			workExperienceInformation: ['', '', '', '', ''],
 			educationInformation: ['', '', '', '', ''],
 			certificationInformation: [''],
@@ -24,6 +24,7 @@ class App extends Component {
 				'Email',
 				'Phone number',
 				'Description',
+				'imgFiler',
 			],
 			workExperienceInformationInputs: [
 				'Position',
@@ -82,7 +83,7 @@ class App extends Component {
 	// };
 
 	addButtonPreviewHandler = function (arrayName, inputArr) {
-		inputArr.forEach((int) => {
+		inputArr.forEach(() => {
 			arrayName.push('');
 		});
 		return arrayName.map((input) => input);
@@ -91,7 +92,7 @@ class App extends Component {
 		if (arrayName.length === inputArr.length) {
 			return arrayName;
 		}
-		inputArr.forEach((int) => {
+		inputArr.forEach(() => {
 			arrayName.pop();
 		});
 		return arrayName.map((input) => input);
@@ -164,77 +165,84 @@ class App extends Component {
 		};
 		const target = e.target;
 		const name = target.name;
-		if (name === 'workExperienceInformationInputs') {
-			this.setState({
-				workExperienceInformationInputs: pushInformation(
-					this.state.workExperienceInformationInputs,
-					this.originalState.workExperienceInformationInputs
-				),
-				workExperienceInformation: this.addButtonPreviewHandler(
-					this.state.workExperienceInformation,
-					this.originalState.workExperienceInformationInputs
-				),
-			});
-		} else if (name === 'educationInformationInputs') {
-			this.setState({
-				educationInformationInputs: pushInformation(
-					this.state.educationInformationInputs,
-					this.originalState.educationInformationInputs
-				),
-				educationInformation: this.addButtonPreviewHandler(
-					this.state.educationInformation,
-					this.originalState.educationInformationInputs
-				),
-			});
-		} else if (name === 'certificationInformationInputs') {
-			this.setState({
-				certificationInformationInputs: pushInformation(
-					this.state.certificationInformationInputs,
-					this.originalState.certificationInformationInputs
-				),
-				certificationInformation: this.addButtonPreviewHandler(
-					this.state.certificationInformation,
-					this.originalState.certificationInformationInputs
-				),
-			});
-		} else if (name === 'techStackInformationInputs') {
-			this.setState({
-				techStackInformationInputs: pushInformation(
-					this.state.techStackInformationInputs,
-					this.originalState.techStackInformationInputs
-				),
-				techStackInformation: this.addButtonPreviewHandler(
-					this.state.techStackInformation,
-					this.originalState.techStackInformationInputs
-				),
-			});
-		} else if (name === 'skillsInformationInputs') {
-			this.setState({
-				skillsInformationInputs: pushInformation(
-					this.state.skillsInformationInputs,
-					this.originalState.skillsInformationInputs
-				),
-				skillsInformation: this.addButtonPreviewHandler(
-					this.state.skillsInformation,
-					this.originalState.skillsInformationInputs
-				),
-			});
-		} else if (name === 'passionsInformationInputs') {
-			this.setState({
-				passionsInformationInputs: pushInformation(
-					this.state.passionsInformationInputs,
-					this.originalState.passionsInformationInputs
-				),
-				passionsInformation: this.addButtonPreviewHandler(
-					this.state.passionsInformation,
-					this.originalState.passionsInformationInputs
-				),
-			});
-		}
-		console.log(this.state);
-		// this.setState({
-		// 	[name]: pushInformation(this.state.name),
-		// });
+		const informationRender = target.getAttribute('inforendering');
+		console.log(informationRender);
+		// if (name === 'workExperienceInformationInputs') {
+		// 	// this.setState({
+		// 	// 	workExperienceInformationInputs: pushInformation(
+		// 	// 		this.state.workExperienceInformationInputs,
+		// 	// 		this.originalState.workExperienceInformationInputs
+		// 	// 	),
+		// 	// 	workExperienceInformation: this.addButtonPreviewHandler(
+		// 	// 		this.state.workExperienceInformation,
+		// 	// 		this.originalState.workExperienceInformationInputs
+		// 	// 	),
+		// 	// });
+		// } else if (name === 'educationInformationInputs') {
+		// 	this.setState({
+		// 		educationInformationInputs: pushInformation(
+		// 			this.state.educationInformationInputs,
+		// 			this.originalState.educationInformationInputs
+		// 		),
+		// 		educationInformation: this.addButtonPreviewHandler(
+		// 			this.state.educationInformation,
+		// 			this.originalState.educationInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'certificationInformationInputs') {
+		// 	this.setState({
+		// 		certificationInformationInputs: pushInformation(
+		// 			this.state.certificationInformationInputs,
+		// 			this.originalState.certificationInformationInputs
+		// 		),
+		// 		certificationInformation: this.addButtonPreviewHandler(
+		// 			this.state.certificationInformation,
+		// 			this.originalState.certificationInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'techStackInformationInputs') {
+		// 	this.setState({
+		// 		techStackInformationInputs: pushInformation(
+		// 			this.state.techStackInformationInputs,
+		// 			this.originalState.techStackInformationInputs
+		// 		),
+		// 		techStackInformation: this.addButtonPreviewHandler(
+		// 			this.state.techStackInformation,
+		// 			this.originalState.techStackInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'skillsInformationInputs') {
+		// 	this.setState({
+		// 		skillsInformationInputs: pushInformation(
+		// 			this.state.skillsInformationInputs,
+		// 			this.originalState.skillsInformationInputs
+		// 		),
+		// 		skillsInformation: this.addButtonPreviewHandler(
+		// 			this.state.skillsInformation,
+		// 			this.originalState.skillsInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'passionsInformationInputs') {
+		// 	this.setState({
+		// 		passionsInformationInputs: pushInformation(
+		// 			this.state.passionsInformationInputs,
+		// 			this.originalState.passionsInformationInputs
+		// 		),
+		// 		passionsInformation: this.addButtonPreviewHandler(
+		// 			this.state.passionsInformation,
+		// 			this.originalState.passionsInformationInputs
+		// 		),
+		// 	});
+		// }
+		// console.log(target.getAttribute('inforendering'));
+
+		this.setState({
+			[name]: pushInformation(this.state[name], this.originalState[name]),
+			[informationRender]: this.addButtonPreviewHandler(
+				this.state[informationRender],
+				this.originalState[name]
+			),
+		});
 	};
 
 	handleRemoveButton = (e) => {
@@ -247,73 +255,84 @@ class App extends Component {
 		};
 		const target = e.target;
 		const name = target.name;
+		const informationRender = target.getAttribute('inforendering');
+		console.log(informationRender);
+		console.log(name);
 
-		if (name === 'workExperienceInformationRemoveButton') {
-			this.setState({
-				workExperienceInformationInputs: removeInformation(
-					this.state.workExperienceInformationInputs,
-					this.originalState.workExperienceInformationInputs
-				),
-				workExperienceInformation: this.removeButtonPreviewHandler(
-					this.state.workExperienceInformation,
-					this.originalState.workExperienceInformationInputs
-				),
-			});
-		} else if (name === 'educationInformationRemoveButton') {
-			this.setState({
-				educationInformationInputs: removeInformation(
-					this.state.educationInformationInputs,
-					this.originalState.educationInformationInputs
-				),
-				educationInformation: this.removeButtonPreviewHandler(
-					this.state.educationInformationInputs
-				),
-			});
-		} else if (name === 'certificationInformationRemoveButton') {
-			this.setState({
-				certificationInformationInputs: removeInformation(
-					this.state.certificationInformationInputs,
-					this.originalState.certificationInformationInputs
-				),
-				certificationInformation: this.removeButtonPreviewHandler(
-					this.state.certificationInformation,
-					this.originalState.certificationInformationInputs
-				),
-			});
-		} else if (name === 'techStackInformationRemoveButton') {
-			this.setState({
-				techStackInformationInputs: removeInformation(
-					this.state.techStackInformationInputs,
-					this.originalState.techStackInformationInputs
-				),
-				techStackInformation: this.removeButtonPreviewHandler(
-					this.state.techStackInformation,
-					this.originalState.techStackInformationInputs
-				),
-			});
-		} else if (name === 'skillsInformationRemoveButton') {
-			this.setState({
-				skillsInformationInputs: removeInformation(
-					this.state.skillsInformationInputs,
-					this.originalState.skillsInformationInputs
-				),
-				skillsInformation: this.removeButtonPreviewHandler(
-					this.state.skillsInformation,
-					this.originalState.skillsInformationInputs
-				),
-			});
-		} else if (name === 'passionsInformationRemoveButton') {
-			this.setState({
-				passionsInformationInputs: removeInformation(
-					this.state.passionsInformationInputs,
-					this.originalState.passionsInformationInputs
-				),
-				passionsInformation: this.removeButtonPreviewHandler(
-					this.state.passionsInformation,
-					this.originalState.passionsInformationInputs
-				),
-			});
-		}
+		// if (name === 'workExperienceInformationRemoveButton') {
+		// 	this.setState({
+		// 		workExperienceInformationInputs: removeInformation(
+		// 			this.state.workExperienceInformationInputs,
+		// 			this.originalState.workExperienceInformationInputs
+		// 		),
+		// 		workExperienceInformation: this.removeButtonPreviewHandler(
+		// 			this.state.workExperienceInformation,
+		// 			this.originalState.workExperienceInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'educationInformationRemoveButton') {
+		// 	this.setState({
+		// 		educationInformationInputs: removeInformation(
+		// 			this.state.educationInformationInputs,
+		// 			this.originalState.educationInformationInputs
+		// 		),
+		// 		educationInformation: this.removeButtonPreviewHandler(
+		// 			this.state.educationInformation,
+		// 			this.originalState.educationInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'certificationInformationRemoveButton') {
+		// 	this.setState({
+		// 		certificationInformationInputs: removeInformation(
+		// 			this.state.certificationInformationInputs,
+		// 			this.originalState.certificationInformationInputs
+		// 		),
+		// 		certificationInformation: this.removeButtonPreviewHandler(
+		// 			this.state.certificationInformation,
+		// 			this.originalState.certificationInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'techStackInformationRemoveButton') {
+		// 	this.setState({
+		// 		techStackInformationInputs: removeInformation(
+		// 			this.state.techStackInformationInputs,
+		// 			this.originalState.techStackInformationInputs
+		// 		),
+		// 		techStackInformation: this.removeButtonPreviewHandler(
+		// 			this.state.techStackInformation,
+		// 			this.originalState.techStackInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'skillsInformationRemoveButton') {
+		// 	this.setState({
+		// 		skillsInformationInputs: removeInformation(
+		// 			this.state.skillsInformationInputs,
+		// 			this.originalState.skillsInformationInputs
+		// 		),
+		// 		skillsInformation: this.removeButtonPreviewHandler(
+		// 			this.state.skillsInformation,
+		// 			this.originalState.skillsInformationInputs
+		// 		),
+		// 	});
+		// } else if (name === 'passionsInformationRemoveButton') {
+		// 	this.setState({
+		// 		passionsInformationInputs: removeInformation(
+		// 			this.state.passionsInformationInputs,
+		// 			this.originalState.passionsInformationInputs
+		// 		),
+		// 		passionsInformation: this.removeButtonPreviewHandler(
+		// 			this.state.passionsInformation,
+		// 			this.originalState.passionsInformationInputs
+		// 		),
+		// 	});
+		// }
+		this.setState({
+			[name]: removeInformation(this.state[name], this.originalState[name]),
+			[informationRender]: this.removeButtonPreviewHandler(
+				this.state[informationRender],
+				this.originalState[name]
+			),
+		});
 	};
 
 	render() {

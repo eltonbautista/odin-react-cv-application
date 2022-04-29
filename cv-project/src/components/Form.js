@@ -27,6 +27,9 @@ class Form extends Component {
 				</button>
 			);
 		};
+
+		const stateKeysInformation = Object.keys(this.props.informationState);
+
 		return (
 			<div id='form-container'>
 				<InformationHeaderRows

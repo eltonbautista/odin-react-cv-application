@@ -74,16 +74,26 @@ class InformationRows extends Component {
 				</li>
 			);
 		});
-		const name =
-			classGrouping[0].toLowerCase() +
-			classGrouping.substring(1).replaceAll(' ', '') +
-			'InformationInputs';
-		// console.log(information);
+		// const name =
+		// 	classGrouping[0].toLowerCase() +
+		// 	classGrouping.substring(1).replaceAll(' ', '') +
+		// 	'InformationInputs';
+		// // console.log(information);
+
+		const forIdentifying = function (str) {
+			return (
+				classGrouping[0].toLowerCase() +
+				classGrouping.substring(1).replaceAll(' ', '') +
+				str
+			);
+		};
+		const name = forIdentifying('InformationInputs');
+		const infoRendering = forIdentifying('Information');
 		return (
 			<form
 				onSubmit={addExtraInformation}
 				name={name}
-				className='form'
+				inforendering={infoRendering}
 				info={information}
 			>
 				<ul className='ul-for-inputs'>{listOfInformation}</ul>
