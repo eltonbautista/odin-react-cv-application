@@ -58,6 +58,10 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* RESUME PREVIEW */
 
+#resume-preview {
+  padding-bottom: 1vh;
+}
+
 #app > div:last-child {
     grid-area: preview;
     background: rgb(207, 202, 202);
@@ -82,7 +86,7 @@ p, h1, h2, h3, h4, h5, h6 {
   grid-area: 'picture';
 }
 #resume-preview > div > div > ul {
-  padding-left: 3vw;
+  padding-left: 3.2vw;
 }
 #resume-preview > div:nth-child(1) > div:nth-child(3) > ul > li {
   display: grid;
@@ -118,6 +122,21 @@ p, h1, h2, h3, h4, h5, h6 {
 
 #resume-preview > div > p {
   font-size: 2.5vh;
-  padding-left: 3vw;
+  padding-left: 3.2vw;
   margin-top: 2vh;
 }
+
+#resume-preview > div:nth-child(2) > div > ul > li:nth-child(5n + 5) > div, 
+#resume-preview > div:nth-child(3) > div > ul > li:nth-child(5n + 5) > div {
+  width: 65%;
+  margin-top: 1vh;
+  content: '○'
+}
+
+#resume-preview > div:nth-child(2) > div > ul > li:nth-child(5n + 5) > div::before, 
+#resume-preview > div:nth-child(3) > div > ul > li:nth-child(5n + 5) > div::before {
+  font-size: large;
+  content: '○ '
+}
+
+/* NEED TO ADD BUTTON THAT WILL LET USER ADD MORE DESCRIPTION BOXES IN WORK EXPERIENCE AND EDUCATION INPUTS */

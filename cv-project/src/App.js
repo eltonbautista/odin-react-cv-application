@@ -4,6 +4,8 @@ import Form from './components/Form';
 import ResumePreview from './components/ResumePreview';
 import Header from './components/Header';
 
+/* NEED TO ADD BUTTON THAT WILL LET USER ADD MORE DESCRIPTION BOXES IN WORK EXPERIENCE AND EDUCATION INPUTS */
+
 class App extends Component {
 	constructor() {
 		super();
