@@ -2,10 +2,11 @@
 import React, { Component } from 'react';
 // import App from '../App';
 import InformationHeaderRows from './InformationHeaderRows';
+import uniqid from 'uniqid';
 
 class Form extends Component {
 	constructor(props) {
-		super();
+		super(props);
 
 		this.props = props;
 	}
@@ -20,19 +21,79 @@ class Form extends Component {
 		const addButton = function addButton() {
 			return <button type='submit'>Add</button>;
 		};
-		const removeButton = function removeButton(name) {
+		const removeButton = function removeButton(
+			name,
+			stateInfo,
+			stateInfoInput
+		) {
 			return (
-				<button onClick={handleRemoveButton} name={name} type='button'>
+				<button
+					onClick={handleRemoveButton}
+					name={name}
+					information={stateInfo}
+					informationinputs={stateInfoInput}
+					type='button'
+				>
 					Remove
 				</button>
 			);
 		};
 
-		const stateKeysInformation = Object.keys(this.props.informationState);
+		const stateKeysInformation = Object.keys(
+			this.props.informationState
+		).splice(1, 6);
+		const stateKeysInformationInputs = Object.keys(
+			this.props.informationState
+		).splice(8);
 
+		const informationHeaderRows = function () {
+			const titles = [
+				'Work Experience',
+				'Education',
+				'Certification',
+				'Tech Stack',
+				'Skills',
+				'Passions',
+			];
+			const headerRows = [
+				<InformationHeaderRows
+					key={uniqid()}
+					title='Personal Information'
+					info={informationState.personalInformationInputs}
+					updateResume={updateResume}
+					value={informationState.personalInformation}
+				/>,
+			];
+			for (let i = 0; i < 6; i++) {
+				let uniqueKey = uniqid();
+				headerRows.push(
+					<InformationHeaderRows
+						key={uniqueKey}
+						title={titles[i]}
+						info={informationState[stateKeysInformationInputs[i]]}
+						value={informationState[stateKeysInformation[i]]}
+						updateResume={updateResume}
+						addBtn={addButton()}
+						addExtraInformation={addExtraInformation}
+						removeBtn={removeButton(
+							stateKeysInformation[i] + 'RemoveButton',
+							stateKeysInformation[i],
+							stateKeysInformationInputs[i]
+						)}
+						handleRemoveButton={handleRemoveButton}
+					/>
+				);
+			}
+			return headerRows;
+		};
+
+		const [...myHeaderRows] = informationHeaderRows();
 		return (
 			<div id='form-container'>
-				<InformationHeaderRows
+				{myHeaderRows.map((header) => {
+					return header;
+				})}
+				{/* <InformationHeaderRows
 					title='Personal Information'
 					info={informationState.personalInformationInputs}
 					updateResume={updateResume}
@@ -94,7 +155,7 @@ class Form extends Component {
 					addBtn={addButton()}
 					addExtraInformation={addExtraInformation}
 					removeBtn={removeButton('passionsInformationRemoveButton')}
-				/>
+				/> */}
 			</div>
 		);
 	}

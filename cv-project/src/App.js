@@ -255,9 +255,11 @@ class App extends Component {
 		};
 		const target = e.target;
 		const name = target.name;
-		const informationRender = target.getAttribute('inforendering');
+		const informationRender = target.getAttribute('information');
+		const informationInputsRender = target.getAttribute('informationinputs');
 		console.log(informationRender);
 		console.log(name);
+		console.log(informationInputsRender);
 
 		// if (name === 'workExperienceInformationRemoveButton') {
 		// 	this.setState({
@@ -327,10 +329,13 @@ class App extends Component {
 		// 	});
 		// }
 		this.setState({
-			[name]: removeInformation(this.state[name], this.originalState[name]),
+			[name]: removeInformation(
+				this.state[informationInputsRender],
+				this.originalState[informationInputsRender]
+			),
 			[informationRender]: this.removeButtonPreviewHandler(
 				this.state[informationRender],
-				this.originalState[name]
+				this.originalState[informationInputsRender]
 			),
 		});
 	};
