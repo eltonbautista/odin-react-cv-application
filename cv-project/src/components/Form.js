@@ -59,7 +59,7 @@ class Form extends Component {
 			];
 			const headerRows = [
 				<InformationHeaderRows
-					key={uniqid()}
+					key={'qwkjeh'}
 					title='Personal Information'
 					info={informationState.personalInformationInputs}
 					updateResume={updateResume}
@@ -70,7 +70,7 @@ class Form extends Component {
 				let uniqueKey = uniqid();
 				headerRows.push(
 					<InformationHeaderRows
-						key={uniqueKey}
+						key={titles[i]}
 						title={titles[i]}
 						info={informationState[stateKeysInformationInputs[i]]}
 						value={informationState[stateKeysInformation[i]]}
