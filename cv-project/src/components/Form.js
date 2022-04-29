@@ -45,8 +45,6 @@ class Form extends Component {
 		const stateKeysInformationInputs = Object.keys(
 			this.props.informationState
 		).splice(8);
-		// console.log(stateKeysInformation);
-		// console.log(stateKeysInformationInputs);
 
 		const informationHeaderRows = function () {
 			const titles = [
@@ -67,7 +65,6 @@ class Form extends Component {
 				/>,
 			];
 			for (let i = 0; i < 6; i++) {
-				let uniqueKey = uniqid();
 				headerRows.push(
 					<InformationHeaderRows
 						key={titles[i]}
@@ -95,69 +92,6 @@ class Form extends Component {
 				{myHeaderRows.map((header) => {
 					return header;
 				})}
-				{/* <InformationHeaderRows
-					title='Personal Information'
-					info={informationState.personalInformationInputs}
-					updateResume={updateResume}
-					value={informationState.personalInformation}
-				/>
-				<InformationHeaderRows
-					title='Work Experience'
-					info={informationState.workExperienceInformationInputs}
-					value={informationState.workExperienceInformation}
-					updateResume={updateResume}
-					addBtn={addButton()}
-					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton('workExperienceInformationRemoveButton')}
-					handleRemoveButton={handleRemoveButton}
-				/>
-				<InformationHeaderRows
-					title='Education'
-					info={informationState.educationInformationInputs}
-					value={informationState.educationInformation}
-					updateResume={updateResume}
-					addBtn={addButton()}
-					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton('educationInformationRemoveButton')}
-				/>
-
-				<InformationHeaderRows
-					title='Certification'
-					info={informationState.certificationInformationInputs}
-					value={informationState.certificationInformation}
-					updateResume={updateResume}
-					addBtn={addButton()}
-					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton('certificationInformationRemoveButton')}
-				/>
-
-				<InformationHeaderRows
-					title='Tech Stack'
-					info={informationState.techStackInformationInputs}
-					value={informationState.techStackInformation}
-					updateResume={updateResume}
-					addBtn={addButton()}
-					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton('techStackInformationRemoveButton')}
-				/>
-				<InformationHeaderRows
-					title='Skills'
-					info={informationState.skillsInformationInputs}
-					value={informationState.skillsInformation}
-					updateResume={updateResume}
-					addBtn={addButton()}
-					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton('skillsInformationRemoveButton')}
-				/>
-				<InformationHeaderRows
-					title='Passions'
-					info={informationState.passionsInformationInputs}
-					value={informationState.passionsInformation}
-					updateResume={updateResume}
-					addBtn={addButton()}
-					addExtraInformation={addExtraInformation}
-					removeBtn={removeButton('passionsInformationRemoveButton')}
-				/> */}
 			</div>
 		);
 	}
