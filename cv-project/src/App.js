@@ -81,8 +81,8 @@ class App extends Component {
 	// 	return [...arrayName[0]].map((input) => input.value);
 	// };
 
-	testInformationArrayFunction = function (arrayName) {
-		return arrayName.map((input) => input.value);
+	buttonPreviewHandler = function (arrayName, originalArr) {
+		return arrayName.map((input) => input);
 	};
 	updateResume = (e) => {
 		const arrayOfGroupedInputs = [];
@@ -158,8 +158,9 @@ class App extends Component {
 					this.state.workExperienceInformationInputs,
 					this.originalState.workExperienceInformationInputs
 				),
-				workExperienceInformation: this.testInformationArrayFunction(
-					this.state.workExperienceInformationInputs
+				workExperienceInformation: this.buttonPreviewHandler(
+					this.state.workExperienceInformation,
+					this.originalState.workExperienceInformationInputs
 				),
 			});
 		} else if (name === 'educationInformationInputs') {
@@ -213,7 +214,7 @@ class App extends Component {
 				),
 			});
 		}
-		console.log(this.state.workExperienceInformationInputs);
+		console.log(this.state);
 		// this.setState({
 		// 	[name]: pushInformation(this.state.name),
 		// });

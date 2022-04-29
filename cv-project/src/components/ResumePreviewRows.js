@@ -11,7 +11,7 @@ class ResumePreviewRows extends Component {
 
 	render() {
 		const { information } = this.props;
-
+		// console.log(information);
 		const listOfInformation = information.map((info) => {
 			let keyId = uniqid();
 			// const properId = info.toLowerCase().replaceAll(' ', '-') + '-preview';
