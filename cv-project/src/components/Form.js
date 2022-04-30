@@ -20,6 +20,7 @@ class Form extends Component {
 		const addButton = function addButton() {
 			return <button type='submit'>Add</button>;
 		};
+
 		const removeButton = function removeButton(
 			name,
 			stateInfo,

@@ -22,6 +22,14 @@ class InformationRows extends Component {
 		} = this.props;
 		let counter = 0;
 
+		const extraDetailsButton = function extraDetailsButton() {
+			return <button type='button'>Add details</button>;
+		};
+
+		const removeDetailButton = function removeDetailButton() {
+			return <button type='button'>Remove details</button>;
+		};
+
 		const listOfInformation = information.map((info) => {
 			let properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			const groupClassName =
@@ -34,7 +42,10 @@ class InformationRows extends Component {
 						<input type='file'></input>
 					</li>
 				);
-			} else if (info === 'Description') {
+			} else if (
+				info === 'Description' &&
+				groupClassName === 'personal-information-input'
+			) {
 				return (
 					<li key={properId + counter}>
 						<textarea
@@ -43,6 +54,23 @@ class InformationRows extends Component {
 							className={groupClassName}
 							id={properId}
 						></textarea>
+					</li>
+				);
+			} else if (
+				(info === 'Description' &&
+					groupClassName === 'work-experience-input') ||
+				(info === 'Description' && groupClassName === 'education-input')
+			) {
+				return (
+					<li key={properId + counter}>
+						<textarea
+							placeholder={info}
+							onChange={updateResume}
+							className={groupClassName}
+							id={properId}
+						></textarea>
+						{extraDetailsButton()}
+						{removeDetailButton()}
 					</li>
 				);
 			}
