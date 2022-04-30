@@ -93,6 +93,7 @@ class App extends Component {
 		});
 		return arrayName.map((input) => input);
 	};
+
 	updateResume = (e) => {
 		const arrayOfGroupedInputs = [];
 
@@ -186,6 +187,13 @@ class App extends Component {
 				this.originalState[informationInputsRender]
 			),
 		});
+	};
+
+	handleAddDetailsButton = (e) => {
+		const target = e.target;
+		const name = target.name;
+
+		this.setState();
 	};
 
 	render() {

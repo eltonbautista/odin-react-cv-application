@@ -19,11 +19,19 @@ class InformationRows extends Component {
 			removeBtn,
 			addExtraInformation,
 			classGrouping,
+			stateKeysInformation,
+			stateKeysInformationInputs,
 		} = this.props;
 		let counter = 0;
-
-		const extraDetailsButton = function extraDetailsButton() {
-			return <button type='button'>Add details</button>;
+		let toTwo = -1;
+		// NEED TO FIX BUTTON INFORMATION AND INFORMATIONINPUT ATTRIBUTES
+		console.log(stateKeysInformation);
+		const extraDetailsButton = function extraDetailsButton(info, infoInput) {
+			return (
+				<button type='button' information={info} informationinput={infoInput}>
+					Add details
+				</button>
+			);
 		};
 
 		const removeDetailButton = function removeDetailButton() {
@@ -61,6 +69,7 @@ class InformationRows extends Component {
 					groupClassName === 'work-experience-input') ||
 				(info === 'Description' && groupClassName === 'education-input')
 			) {
+				// toTwo += 1;
 				return (
 					<li key={properId + counter}>
 						<textarea
@@ -69,7 +78,7 @@ class InformationRows extends Component {
 							className={groupClassName}
 							id={properId}
 						></textarea>
-						{extraDetailsButton()}
+						{extraDetailsButton(stateKeysInformation[toTwo])}
 						{removeDetailButton()}
 					</li>
 				);

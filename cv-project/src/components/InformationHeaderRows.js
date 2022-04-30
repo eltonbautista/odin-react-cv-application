@@ -17,6 +17,8 @@ class InformationHeaderRows extends Component {
 			removeBtn,
 			updateResume,
 			addExtraInformation,
+			stateKeysInfo,
+			stateKeysInfoInputs,
 		} = this.props;
 
 		const properId =
@@ -32,6 +34,8 @@ class InformationHeaderRows extends Component {
 					addExtraInformation={addExtraInformation}
 					removeBtn={removeBtn}
 					classGrouping={title}
+					stateKeysInformation={stateKeysInfo}
+					stateKeysInformationInputs={stateKeysInfoInputs}
 				/>
 			</div>
 		);

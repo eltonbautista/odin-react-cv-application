@@ -80,6 +80,8 @@ class Form extends Component {
 							stateKeysInformationInputs[i]
 						)}
 						handleRemoveButton={handleRemoveButton}
+						stateKeysInfo={stateKeysInformation}
+						stateKeysInfoInput={stateKeysInformationInputs}
 					/>
 				);
 			}
