@@ -192,8 +192,18 @@ class App extends Component {
 	handleAddDetailsButton = (e) => {
 		const target = e.target;
 		const name = target.name;
-
-		this.setState();
+		const informationRender = target.getAttribute('information');
+		const informationInputsRender = target.getAttribute('informationinput');
+		console.log(informationInputsRender);
+		const addDetails = function addDetails(info, infoInputs) {
+			info.push('Description');
+			return info;
+		};
+		this.setState({
+			[informationInputsRender]: addDetails(
+				this.state[informationInputsRender]
+			),
+		});
 	};
 
 	render() {
@@ -207,6 +217,7 @@ class App extends Component {
 					addExtraInformation={this.addExtraInformation}
 					handleRemoveButton={this.handleRemoveButton}
 					informationState={this.state}
+					addExtraDetails={this.handleAddDetailsButton}
 				/>
 				<ResumePreview informationState={this.state} />
 			</div>

@@ -21,28 +21,35 @@ class InformationRows extends Component {
 			classGrouping,
 			stateKeysInformation,
 			stateKeysInformationInputs,
+			addExtraDetails,
 		} = this.props;
 		let counter = 0;
-		let toTwo = -1;
 		// NEED TO FIX BUTTON INFORMATION AND INFORMATIONINPUT ATTRIBUTES
-		console.log(stateKeysInformation);
 		const extraDetailsButton = function extraDetailsButton(info, infoInput) {
 			return (
-				<button type='button' information={info} informationinput={infoInput}>
+				<button
+					type='button'
+					onClick={addExtraDetails}
+					information={info}
+					informationinput={infoInput}
+				>
 					Add details
 				</button>
 			);
 		};
 
-		const removeDetailButton = function removeDetailButton() {
-			return <button type='button'>Remove details</button>;
+		const removeDetailButton = function removeDetailButton(info, infoInput) {
+			return (
+				<button type='button' information={info} informationinput={infoInput}>
+					Remove details
+				</button>
+			);
 		};
 
 		const listOfInformation = information.map((info) => {
 			let properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			const groupClassName =
 				classGrouping.toLowerCase().replaceAll(' ', '-') + '-input';
-
 			if (info === 'imgFiler') {
 				return (
 					<li key={properId}>
@@ -50,10 +57,7 @@ class InformationRows extends Component {
 						<input type='file'></input>
 					</li>
 				);
-			} else if (
-				info === 'Description' &&
-				groupClassName === 'personal-information-input'
-			) {
+			} else if (info === 'Description') {
 				return (
 					<li key={properId + counter}>
 						<textarea
@@ -62,24 +66,6 @@ class InformationRows extends Component {
 							className={groupClassName}
 							id={properId}
 						></textarea>
-					</li>
-				);
-			} else if (
-				(info === 'Description' &&
-					groupClassName === 'work-experience-input') ||
-				(info === 'Description' && groupClassName === 'education-input')
-			) {
-				// toTwo += 1;
-				return (
-					<li key={properId + counter}>
-						<textarea
-							placeholder={info}
-							onChange={updateResume}
-							className={groupClassName}
-							id={properId}
-						></textarea>
-						{extraDetailsButton(stateKeysInformation[toTwo])}
-						{removeDetailButton()}
 					</li>
 				);
 			}
@@ -118,6 +104,28 @@ class InformationRows extends Component {
 				<ul className='ul-for-inputs'>{listOfInformation}</ul>
 				<>{addBtn}</>
 				<>{removeBtn}</>
+				<>
+					{name === 'workExperienceInformationInputs' &&
+						extraDetailsButton(
+							stateKeysInformation[0],
+							stateKeysInformationInputs[0]
+						)}
+					{name === 'workExperienceInformationInputs' &&
+						removeDetailButton(
+							stateKeysInformation[0],
+							stateKeysInformationInputs[0]
+						)}
+					{name === 'educationInformationInputs' &&
+						extraDetailsButton(
+							stateKeysInformation[1],
+							stateKeysInformationInputs[1]
+						)}
+					{name === 'educationInformationInputs' &&
+						removeDetailButton(
+							stateKeysInformation[1],
+							stateKeysInformationInputs[1]
+						)}
+				</>
 			</form>
 		);
 	}

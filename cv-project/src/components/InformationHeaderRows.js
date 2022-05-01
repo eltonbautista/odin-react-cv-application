@@ -19,6 +19,7 @@ class InformationHeaderRows extends Component {
 			addExtraInformation,
 			stateKeysInfo,
 			stateKeysInfoInputs,
+			addExtraDetails,
 		} = this.props;
 
 		const properId =
@@ -36,6 +37,7 @@ class InformationHeaderRows extends Component {
 					classGrouping={title}
 					stateKeysInformation={stateKeysInfo}
 					stateKeysInformationInputs={stateKeysInfoInputs}
+					addExtraDetails={addExtraDetails}
 				/>
 			</div>
 		);
