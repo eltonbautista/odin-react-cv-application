@@ -171,8 +171,11 @@ class App extends Component {
 			if (informationInput.length === removeArray.length) {
 				return informationInput;
 			}
-			const spliceAt = -(informationInput.length - removeArray.length);
-			return informationInput.splice(spliceAt);
+			// const spliceAt = -(informationInput.length - removeArray.length);
+			removeArray.forEach(() => {
+				informationInput.pop();
+			});
+			return informationInput;
 		};
 		const target = e.target;
 		const informationRender = target.getAttribute('information');
@@ -207,6 +210,8 @@ class App extends Component {
 				this.originalState[informationInputsRender]
 			),
 		});
+		console.log(this.state[informationInputsRender]);
+		console.log(this.originalState[informationInputsRender]);
 	};
 
 	handleRemoveDetailsButton = (e) => {
@@ -214,14 +219,19 @@ class App extends Component {
 		const informationInputsRender = target.getAttribute('informationinput');
 
 		const removeDetails = function removeDetails(infoInput, originArr) {
-			let oneDescription = infoInput.filter((d) => d === 'Description');
-			if (oneDescription.length <= 1) {
+			let oneDescription = originArr.filter((d) => d === 'Description');
+			if (
+				oneDescription.length <= 1 &&
+				originArr[originArr.length - 1] === 'Description'
+			) {
+				// infoInput.pop();
 				return infoInput;
 			}
 
 			if (
 				infoInput[infoInput.length - 1] === 'Description' &&
-				originArr[originArr.length - 1] === 'Description'
+				originArr[originArr.length - 1] === 'Description' &&
+				oneDescription.length > 1
 			) {
 				infoInput.pop();
 				originArr.pop();
