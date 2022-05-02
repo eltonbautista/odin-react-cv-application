@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Form from './components/Form';
 import ResumePreview from './components/ResumePreview';
 import Header from './components/Header';
+import uniqid from 'uniqid';
 
 /* NEED TO ADD BUTTON THAT WILL LET USER ADD MORE DESCRIPTION BOXES IN WORK EXPERIENCE AND EDUCATION INPUTS */
 
@@ -45,6 +46,7 @@ class App extends Component {
 			techStackInformationInputs: ['CSS (example)'],
 			skillsInformationInputs: ['Customer service (example)'],
 			passionsInformationInputs: ['Snowboarding (example)'],
+			specialId: uniqid(),
 		};
 		this.originalState = {
 			personalInformationInputs: [
@@ -77,7 +79,6 @@ class App extends Component {
 		this.personalInformationValues =
 			document.querySelector('#first-name-input');
 	}
-
 	addButtonPreviewHandler = function (arrayName, inputArr) {
 		inputArr.forEach(() => {
 			arrayName.push('');
@@ -136,6 +137,7 @@ class App extends Component {
 			techStackInformation: informationArrayFunction(techStackInputs),
 			skillsInformation: informationArrayFunction(skillsInputs),
 			passionsInformation: informationArrayFunction(passionsInputs),
+			specialId: uniqid(),
 		});
 	};
 
@@ -194,21 +196,21 @@ class App extends Component {
 		const name = target.name;
 		const informationRender = target.getAttribute('information');
 		const informationInputsRender = target.getAttribute('informationinput');
-		console.log(informationInputsRender);
 		const addDetails = function addDetails(info, infoInputs) {
 			info.push('Description');
 			return info;
 		};
 		this.setState({
+			specialId: this.state.specialId,
 			[informationInputsRender]: addDetails(
 				this.state[informationInputsRender]
 			),
 		});
+		console.log(this.state.specialId);
 	};
 
 	render() {
 		// eslint-disable-next-line prettier/prettier
-
 		return (
 			<div id='app'>
 				<Header title='CV Project App' />

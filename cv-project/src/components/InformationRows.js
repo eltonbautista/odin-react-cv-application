@@ -5,8 +5,9 @@ class InformationRows extends Component {
 	constructor(props) {
 		super(props);
 
-		this.uniqid = uniqid;
+		// this.uniqid = uniqid;
 		this.props = props;
+		this.random = Math.floor(Math.random() * 100);
 	}
 
 	render() {
@@ -22,6 +23,7 @@ class InformationRows extends Component {
 			stateKeysInformation,
 			stateKeysInformationInputs,
 			addExtraDetails,
+			state,
 		} = this.props;
 		let counter = 0;
 		// NEED TO FIX BUTTON INFORMATION AND INFORMATIONINPUT ATTRIBUTES
@@ -46,6 +48,8 @@ class InformationRows extends Component {
 			);
 		};
 
+		// Can't use uniqid or any function as the value of my key because it causes re-rendering.
+		// Unlike properId which uses "info" <- this is a prop which is static and doesn't cause re-rendering until the appropriate time
 		const listOfInformation = information.map((info) => {
 			let properId = info.toLowerCase().replaceAll(' ', '-') + '-input';
 			const groupClassName =
@@ -69,7 +73,7 @@ class InformationRows extends Component {
 					</li>
 				);
 			}
-			counter += 1;
+			// counter += 1;
 			return (
 				<li key={properId + counter}>
 					<input
