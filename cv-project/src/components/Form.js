@@ -16,7 +16,7 @@ class Form extends Component {
 			informationState,
 			handleRemoveButton,
 			addExtraDetails,
-			changeId,
+			removeExtraDetails,
 		} = this.props;
 
 		const addButton = function addButton() {
@@ -85,7 +85,8 @@ class Form extends Component {
 						stateKeysInfo={stateKeysInformation}
 						stateKeysInfoInputs={stateKeysInformationInputs}
 						addExtraDetails={addExtraDetails}
-						state={informationState.specialId}
+						specialId={informationState.specialId}
+						removeExtraDetails={removeExtraDetails}
 					/>
 				);
 			}

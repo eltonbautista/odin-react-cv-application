@@ -23,11 +23,11 @@ class InformationRows extends Component {
 			stateKeysInformation,
 			stateKeysInformationInputs,
 			addExtraDetails,
+			removeExtraDetails,
 		} = this.props;
 		let counter = 0;
-		let { state } = this.props;
-		// let test = state;
-		// console.log(test);
+		let { specialId } = this.props;
+
 		// NEED TO FIX BUTTON INFORMATION AND INFORMATIONINPUT ATTRIBUTES
 		const extraDetailsButton = function extraDetailsButton(info, infoInput) {
 			return (
@@ -44,7 +44,12 @@ class InformationRows extends Component {
 
 		const removeDetailButton = function removeDetailButton(info, infoInput) {
 			return (
-				<button type='button' information={info} informationinput={infoInput}>
+				<button
+					type='button'
+					onClick={removeExtraDetails}
+					information={info}
+					informationinput={infoInput}
+				>
 					Remove details
 				</button>
 			);
@@ -65,7 +70,7 @@ class InformationRows extends Component {
 				);
 			} else if (info === 'Description') {
 				return (
-					<li key={(state += counter)}>
+					<li key={(specialId += counter)}>
 						<textarea
 							placeholder={info}
 							onChange={updateResume}

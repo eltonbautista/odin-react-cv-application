@@ -205,11 +205,27 @@ class App extends Component {
 				this.state[informationInputsRender]
 			),
 		});
-		console.log(this.state.specialId);
+	};
+
+	handleRemoveDetailsButton = (e) => {
+		const target = e.target;
+		const informationInputsRender = target.getAttribute('informationinput');
+
+		const removeDetails = function removeDetails(infoInput) {
+			if (infoInput[infoInput.length - 1] === 'Description') {
+				infoInput.pop();
+			}
+			return infoInput;
+		};
+
+		this.setState({
+			[informationInputsRender]: removeDetails(
+				this.state[informationInputsRender]
+			),
+		});
 	};
 
 	render() {
-		console.log(this.state.specialId);
 		// eslint-disable-next-line prettier/prettier
 		return (
 			<div id='app'>
@@ -220,6 +236,7 @@ class App extends Component {
 					handleRemoveButton={this.handleRemoveButton}
 					informationState={this.state}
 					addExtraDetails={this.handleAddDetailsButton}
+					removeExtraDetails={this.handleRemoveDetailsButton}
 				/>
 				<ResumePreview informationState={this.state} />
 			</div>
