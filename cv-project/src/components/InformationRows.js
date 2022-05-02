@@ -23,9 +23,11 @@ class InformationRows extends Component {
 			stateKeysInformation,
 			stateKeysInformationInputs,
 			addExtraDetails,
-			state,
 		} = this.props;
 		let counter = 0;
+		let { state } = this.props;
+		// let test = state;
+		// console.log(test);
 		// NEED TO FIX BUTTON INFORMATION AND INFORMATIONINPUT ATTRIBUTES
 		const extraDetailsButton = function extraDetailsButton(info, infoInput) {
 			return (
@@ -63,7 +65,7 @@ class InformationRows extends Component {
 				);
 			} else if (info === 'Description') {
 				return (
-					<li key={properId + counter}>
+					<li key={(state += counter)}>
 						<textarea
 							placeholder={info}
 							onChange={updateResume}

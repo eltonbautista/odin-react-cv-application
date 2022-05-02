@@ -85,7 +85,7 @@ class Form extends Component {
 						stateKeysInfo={stateKeysInformation}
 						stateKeysInfoInputs={stateKeysInformationInputs}
 						addExtraDetails={addExtraDetails}
-						state={informationState}
+						state={informationState.specialId}
 					/>
 				);
 			}

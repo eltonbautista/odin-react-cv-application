@@ -137,7 +137,6 @@ class App extends Component {
 			techStackInformation: informationArrayFunction(techStackInputs),
 			skillsInformation: informationArrayFunction(skillsInputs),
 			passionsInformation: informationArrayFunction(passionsInputs),
-			specialId: uniqid(),
 		});
 	};
 
@@ -201,7 +200,7 @@ class App extends Component {
 			return info;
 		};
 		this.setState({
-			specialId: this.state.specialId,
+			specialId: uniqid(),
 			[informationInputsRender]: addDetails(
 				this.state[informationInputsRender]
 			),
@@ -210,6 +209,7 @@ class App extends Component {
 	};
 
 	render() {
+		console.log(this.state.specialId);
 		// eslint-disable-next-line prettier/prettier
 		return (
 			<div id='app'>
