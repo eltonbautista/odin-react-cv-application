@@ -82,7 +82,7 @@ class InformationRows extends Component {
 			}
 			// counter += 1;
 			return (
-				<li key={properId + counter}>
+				<li key={specialId + properId + counter}>
 					<input
 						value={value[value.indexOf(info)]}
 						type='text'

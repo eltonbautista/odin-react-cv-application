@@ -197,12 +197,14 @@ class App extends Component {
 		const informationInputsRender = target.getAttribute('informationinput');
 		const addDetails = function addDetails(info, infoInputs) {
 			info.push('Description');
+			infoInputs.push('Description');
 			return info;
 		};
 		this.setState({
-			specialId: uniqid(),
+			// specialId: uniqid(),
 			[informationInputsRender]: addDetails(
-				this.state[informationInputsRender]
+				this.state[informationInputsRender],
+				this.originalState[informationInputsRender]
 			),
 		});
 	};
@@ -211,16 +213,26 @@ class App extends Component {
 		const target = e.target;
 		const informationInputsRender = target.getAttribute('informationinput');
 
-		const removeDetails = function removeDetails(infoInput) {
-			if (infoInput[infoInput.length - 1] === 'Description') {
+		const removeDetails = function removeDetails(infoInput, originArr) {
+			let oneDescription = infoInput.filter((d) => d === 'Description');
+			if (oneDescription.length <= 1) {
+				return infoInput;
+			}
+
+			if (
+				infoInput[infoInput.length - 1] === 'Description' &&
+				originArr[originArr.length - 1] === 'Description'
+			) {
 				infoInput.pop();
+				originArr.pop();
 			}
 			return infoInput;
 		};
 
 		this.setState({
 			[informationInputsRender]: removeDetails(
-				this.state[informationInputsRender]
+				this.state[informationInputsRender],
+				this.originalState[informationInputsRender]
 			),
 		});
 	};
