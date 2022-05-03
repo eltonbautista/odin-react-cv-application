@@ -131,6 +131,9 @@ class App extends Component {
 
 	addExtraInformation = (e) => {
 		e.preventDefault();
+		let certificationDiv = document.querySelector(
+			'#resume-preview > div:nth-child(4) > p'
+		);
 
 		const pushInformation = function (
 			stateInformationInput,
@@ -138,6 +141,10 @@ class App extends Component {
 		) {
 			for (let i = 0; i < originalStateInformationInput.length; i += 1) {
 				stateInformationInput.push(originalStateInformationInput[i]);
+				if (originalStateInformationInput[i] === 'Certification (example)') {
+					certificationDiv.style.visibility = 'visible';
+					certificationDiv.style.position = 'relative';
+				}
 			}
 			return stateInformationInput;
 		};
@@ -161,7 +168,6 @@ class App extends Component {
 		const target = e.target;
 		const name = target.name;
 		const informationRender = target.getAttribute('inforendering');
-		console.log(informationRender);
 
 		this.setState({
 			[name]: pushInformation(this.state[name], this.originalState[name]),
@@ -173,10 +179,14 @@ class App extends Component {
 	};
 
 	handleRemoveButton = (e) => {
+		let certificationDiv = document.querySelector(
+			'#resume-preview > div:nth-child(4) > p'
+		);
 		const removeInformation = function (informationInput, removeArray) {
 			if (
 				informationInput.length === removeArray.length &&
-				informationInput.length === 5
+				informationInput.length === 5 &&
+				informationInput[informationInput.length - 1] === 'Description'
 			) {
 				return informationInput;
 			}
@@ -195,6 +205,21 @@ class App extends Component {
 
 			if (informationInput[informationInput.length - 1] === 'From') {
 				informationInput.splice(fromTo, 4);
+			}
+
+			if (
+				informationInput[informationInput.length - 1] ===
+				'Certification (example)'
+			) {
+				informationInput.pop();
+				if (informationInput.length === 0) {
+					certificationDiv.style.visibility = 'hidden';
+					certificationDiv.style.position = 'absolute';
+				}
+			} else if (
+				informationInput[informationInput.length - 1] !== 'Description'
+			) {
+				informationInput.pop();
 			}
 
 			return informationInput;
@@ -250,8 +275,6 @@ class App extends Component {
 		const informationInputsRender = target.getAttribute('informationinput');
 
 		const removeDetails = function removeDetails(infoInput, originArr) {
-			console.log(infoInput);
-			console.log(originArr);
 			let oneDescription = originArr.filter((d) => d === 'Description');
 			if (infoInput.length === 5) {
 				originArr.length = infoInput.length;

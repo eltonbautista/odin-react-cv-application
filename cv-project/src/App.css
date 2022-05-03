@@ -140,3 +140,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* NEED TO ADD BUTTON THAT WILL LET USER ADD MORE DESCRIPTION BOXES IN WORK EXPERIENCE AND EDUCATION INPUTS */
+
+.show-div {
+  visibility: visible;
+}
