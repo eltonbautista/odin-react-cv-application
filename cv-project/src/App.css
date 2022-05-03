@@ -39,13 +39,22 @@ p, h1, h2, h3, h4, h5, h6 {
     'header header'
     'form preview';
     grid-template-columns: 0.9fr 1fr;
+    padding-bottom: 3vh;
+    /* background-color: rgba(0, 0, 0, 0.829); */
+    background-color: wheat;
 }
 
 /* HEADER */
 
 #app > header {
     grid-area: header;
-    font-size: 40px;
+    font-weight: 800;
+    font-size: 5vh;
+    margin-bottom: 3vh;
+    padding-left: 3vw;
+    background-color: rgba(0, 0, 0, 0.829);
+    border-bottom: 10px white solid;
+    color: wheat;
 }
 
 /* FORM */
@@ -56,10 +65,16 @@ p, h1, h2, h3, h4, h5, h6 {
     font-size: 16px;
 }
 
+
 /* RESUME PREVIEW */
 
 #resume-preview {
   padding-bottom: 1vh;
+  width: 90%;
+  box-shadow: 8px -4px 7px rgba(0, 0, 0, 0.37),
+   -8px 4px 7px rgba(0, 0, 0, 0.37)
+   ;
+   border-radius: 10px;
 }
 
 #app > div:last-child {
@@ -139,8 +154,94 @@ p, h1, h2, h3, h4, h5, h6 {
   content: '○ '
 }
 
+#resume-preview > div:nth-child(1n + 4) > div > ul > li > div::before  {
+  font-size: large;
+  content: '○ '
+} 
 /* NEED TO ADD BUTTON THAT WILL LET USER ADD MORE DESCRIPTION BOXES IN WORK EXPERIENCE AND EDUCATION INPUTS */
 
 .show-div {
   visibility: visible;
+}
+
+/* FORM STYLING */
+#form-container {
+  background: lightgrey;
+  width: 80%;
+  justify-self: center;
+  display: grid;
+  border-radius: 10px;
+  box-shadow: 8px -4px 7px rgba(0, 0, 0, 0.37),
+   -8px 4px 7px rgba(0, 0, 0, 0.37);
+}
+
+#form-container > div {
+  display: grid;
+  /* justify-items: center; */
+}
+
+#form-container > div > form > ul {
+  display: grid;
+  padding: 0;
+}
+
+#form-container > div > p {
+  /* margin-left: 2vw; */
+  font-size: 20px;
+  font-weight: 600;
+  justify-self: center;
+  width: 90%;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
+
+#form-container > div > form > ul > li {
+  display: grid;
+  width: 90%;
+  justify-self: center;
+}
+
+#form-container > div > form {
+  display: grid;
+  /* justify-items: center; */
+}
+
+#form-container > div > form > button, #file-upload-button {
+  width: 50%;
+  justify-self: center;
+  margin-bottom: 0.5vh;
+  border-radius: 8px;
+  border: 0.5px solid rgba(0, 0, 0, 0.582);
+  font-size: 1.7vh;
+}
+
+input[type='text'], textarea {
+  background-color: rgba(255, 255, 255, 0.425);
+  color: black;
+  font-weight: 900;
+  border: none;
+  outline: 1px rgba(0, 0, 0, 0.473) solid ;
+}
+
+#form-container > div > form > ul > li:last-child {
+  margin-bottom: 1vh;
+}
+
+.description-input {
+  margin-bottom: 1vh;
+}
+
+input[type="file"] {
+  display: none;
+}
+#personal-information-information-header > form > ul > li:nth-child(6) > label {
+  border: 0.3vh solid black;
+    /* display: inline-block; */
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 4px -4px 2px inset rgba(0, 0, 0, 0.37),
+  -4px 4px 2px inset rgba(0, 0, 0, 0.37);
+  font-weight: 900;
+  justify-content: center;
+  display: flex;
 }

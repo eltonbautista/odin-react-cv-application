@@ -64,18 +64,19 @@ class InformationRows extends Component {
 			if (info === 'imgFiler') {
 				return (
 					<li key={properId}>
-						<label>Upload image </label>
-						<input type='file'></input>
+						<label>
+							Upload image<input type='file'></input>{' '}
+						</label>
 					</li>
 				);
 			} else if (info === 'Description') {
 				return (
-					<li key={(specialId += counter)}>
+					<li key={(specialId += counter)} className={properId}>
 						<textarea
 							placeholder={info}
 							onChange={updateResume}
 							className={groupClassName}
-							id={properId}
+							// id={properId}
 						></textarea>
 					</li>
 				);

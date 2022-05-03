@@ -72,7 +72,7 @@ class App extends Component {
 				'Description',
 			],
 			certificationInformationInputs: ['Certification (example)'],
-			techStackInformationInputs: ['CSS example'],
+			techStackInformationInputs: ['CSS (example)'],
 			skillsInformationInputs: ['Customer service (example)'],
 			passionsInformationInputs: ['Snowboarding (example)'],
 		};
