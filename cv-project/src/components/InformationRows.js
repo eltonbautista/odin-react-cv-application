@@ -75,7 +75,7 @@ class InformationRows extends Component {
 							placeholder={info}
 							onChange={updateResume}
 							className={groupClassName}
-							// id={properId}
+							id={properId}
 						></textarea>
 					</li>
 				);
@@ -87,9 +87,9 @@ class InformationRows extends Component {
 						value={value[value.indexOf(info)]}
 						type='text'
 						placeholder={info}
-						// className={properId}
+						// id={properId}
 						onChange={updateResume}
-						className={(groupClassName, properId)}
+						className={groupClassName}
 					></input>
 					{imgFiler}
 				</li>

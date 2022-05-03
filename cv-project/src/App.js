@@ -80,9 +80,12 @@ class App extends Component {
 		this.personalInformationValues =
 			document.querySelector('#first-name-input');
 	}
-
+	// onChange event used for all my inputs. This function is passed onto my inputs, whenever an input is typed in
+	// It will change the state of the appropriate states.
 	updateResume = (e) => {
 		const arrayOfGroupedInputs = [];
+
+		// Initially I wasn't sure how to use state so I created this function to create an array of my inputs.
 
 		const getInputs = function (...inputGroup) {
 			const [...fixedInputs] = inputGroup;
@@ -187,11 +190,16 @@ class App extends Component {
 			return informationInput;
 		};
 		const removeButtonPreviewHandler = function (arrayName, inputArr) {
+			console.log(arrayName);
+			console.log(inputArr);
 			if (arrayName.length === inputArr.length) {
 				return arrayName;
 			}
-			inputArr.forEach(() => {
-				arrayName.pop();
+			inputArr.forEach((input) => {
+				if (input === 'Description') {
+					arrayName.pop();
+				}
+				// arrayName.pop();
 			});
 			return arrayName.map((input) => input);
 		};
