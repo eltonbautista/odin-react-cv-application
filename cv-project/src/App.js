@@ -71,10 +71,10 @@ class App extends Component {
 				'From',
 				'Description',
 			],
-			certificationInformationInputs: ['Certification Example'],
-			techStackInformationInputs: ['CSS'],
-			skillsInformationInputs: ['Customer service'],
-			passionsInformationInputs: ['Snowboarding'],
+			certificationInformationInputs: ['Certification (example)'],
+			techStackInformationInputs: ['CSS example'],
+			skillsInformationInputs: ['Customer service (example)'],
+			passionsInformationInputs: ['Snowboarding (example)'],
 		};
 
 		this.personalInformationValues =
@@ -132,15 +132,25 @@ class App extends Component {
 	addExtraInformation = (e) => {
 		e.preventDefault();
 
+		// const pushInformation = function (
+		// 	stateInformationInput,
+		// 	originalStateInformationInput
+		// ) {
+		// 	for (let i = 0; i < 5; i += 1) {
+		// 		stateInformationInput.push(originalStateInformationInput[i]);
+		// 	}
+		// 	return stateInformationInput;
+		// };
 		const pushInformation = function (
 			stateInformationInput,
 			originalStateInformationInput
 		) {
-			for (let i = 0; i < 5; i += 1) {
-				stateInformationInput.push(originalStateInformationInput[i]);
-			}
+			originalStateInformationInput.forEach((input) => {
+				stateInformationInput.push(input);
+			});
 			return stateInformationInput;
 		};
+
 		const addButtonPreviewHandler = function (arrayName, inputArr) {
 			inputArr.forEach(() => {
 				arrayName.push('');
@@ -190,8 +200,6 @@ class App extends Component {
 			return informationInput;
 		};
 		const removeButtonPreviewHandler = function (arrayName, inputArr) {
-			console.log(arrayName);
-			console.log(inputArr);
 			if (arrayName.length === inputArr.length) {
 				return arrayName;
 			}
