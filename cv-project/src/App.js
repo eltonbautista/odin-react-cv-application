@@ -5,12 +5,13 @@ import ResumePreview from './components/ResumePreview';
 import Header from './components/Header';
 import uniqid from 'uniqid';
 
-/* NEED TO ADD BUTTON THAT WILL LET USER ADD MORE DESCRIPTION BOXES IN WORK EXPERIENCE AND EDUCATION INPUTS */
-
 class App extends Component {
 	constructor() {
 		super();
-
+		// Three states: ResumePreview starting point, Input values, creating extra inputs reference point.
+		// Initially I wasn't too familiar with state, so I didn't take each component's lifecycle into account.
+		// Hence it resulted in three different groups of states. Also, I should have put each group "under" an object.
+		// Now I recognize that after an event I should change the state to an initial value.
 		this.state = {
 			personalInformation: ['', '', '', '', '', ''],
 			workExperienceInformation: ['', '', '', '', ''],
@@ -79,21 +80,6 @@ class App extends Component {
 		this.personalInformationValues =
 			document.querySelector('#first-name-input');
 	}
-	addButtonPreviewHandler = function (arrayName, inputArr) {
-		inputArr.forEach(() => {
-			arrayName.push('');
-		});
-		return arrayName.map((input) => input);
-	};
-	removeButtonPreviewHandler = function (arrayName, inputArr) {
-		if (arrayName.length === inputArr.length) {
-			return arrayName;
-		}
-		inputArr.forEach(() => {
-			arrayName.pop();
-		});
-		return arrayName.map((input) => input);
-	};
 
 	updateResume = (e) => {
 		const arrayOfGroupedInputs = [];
@@ -147,13 +133,16 @@ class App extends Component {
 			stateInformationInput,
 			originalStateInformationInput
 		) {
-			// originalStateInformationInput.forEach((input) => {
-			// 	stateInformationInput.push(input);
-			// });
 			for (let i = 0; i < 5; i += 1) {
 				stateInformationInput.push(originalStateInformationInput[i]);
 			}
 			return stateInformationInput;
+		};
+		const addButtonPreviewHandler = function (arrayName, inputArr) {
+			inputArr.forEach(() => {
+				arrayName.push('');
+			});
+			return arrayName.map((input) => input);
 		};
 
 		const target = e.target;
@@ -163,7 +152,7 @@ class App extends Component {
 
 		this.setState({
 			[name]: pushInformation(this.state[name], this.originalState[name]),
-			[informationRender]: this.addButtonPreviewHandler(
+			[informationRender]: addButtonPreviewHandler(
 				this.state[informationRender],
 				this.originalState[name]
 			),
@@ -178,10 +167,10 @@ class App extends Component {
 			) {
 				return informationInput;
 			}
-			console.table(informationInput);
-			console.table(removeArray);
+
 			const fromTo =
 				informationInput.indexOf('From', informationInput.length - 2) - 3;
+
 			removeArray.forEach((input) => {
 				if (input === 'Description' && informationInput.length > 5) {
 					informationInput.pop();
@@ -190,11 +179,23 @@ class App extends Component {
 					removeArray.pop();
 				}
 			});
+
 			if (informationInput[informationInput.length - 1] === 'From') {
 				informationInput.splice(fromTo, 4);
 			}
+
 			return informationInput;
 		};
+		const removeButtonPreviewHandler = function (arrayName, inputArr) {
+			if (arrayName.length === inputArr.length) {
+				return arrayName;
+			}
+			inputArr.forEach(() => {
+				arrayName.pop();
+			});
+			return arrayName.map((input) => input);
+		};
+
 		const target = e.target;
 		const informationRender = target.getAttribute('information');
 		const informationInputsRender = target.getAttribute('informationinputs');
@@ -204,7 +205,7 @@ class App extends Component {
 				this.state[informationInputsRender],
 				this.originalState[informationInputsRender]
 			),
-			[informationRender]: this.removeButtonPreviewHandler(
+			[informationRender]: removeButtonPreviewHandler(
 				this.state[informationRender],
 				this.originalState[informationInputsRender]
 			),
@@ -213,8 +214,7 @@ class App extends Component {
 
 	handleAddDetailsButton = (e) => {
 		const target = e.target;
-		const name = target.name;
-		const informationRender = target.getAttribute('information');
+
 		const informationInputsRender = target.getAttribute('informationinput');
 		const addDetails = function addDetails(info, infoInputs) {
 			info.push('Description');
@@ -222,14 +222,11 @@ class App extends Component {
 			return info;
 		};
 		this.setState({
-			// specialId: uniqid(),
 			[informationInputsRender]: addDetails(
 				this.state[informationInputsRender],
 				this.originalState[informationInputsRender]
 			),
 		});
-		console.log(this.state[informationInputsRender]);
-		console.log(this.originalState[informationInputsRender]);
 	};
 
 	handleRemoveDetailsButton = (e) => {
@@ -237,15 +234,17 @@ class App extends Component {
 		const informationInputsRender = target.getAttribute('informationinput');
 
 		const removeDetails = function removeDetails(infoInput, originArr) {
+			console.log(infoInput);
+			console.log(originArr);
 			let oneDescription = originArr.filter((d) => d === 'Description');
 			if (infoInput.length === 5) {
 				originArr.length = infoInput.length;
-			}
-			if (originArr.length > infoInput.length) {
-				originArr.length = infoInput.length;
-			}
-
-			if (
+			} else if (
+				infoInput[infoInput.length - 1] === 'Description' &&
+				infoInput[infoInput.length - 2] === 'From'
+			) {
+				return infoInput;
+			} else if (
 				infoInput[infoInput.length - 1] === 'Description' &&
 				originArr[originArr.length - 1] === 'Description' &&
 				oneDescription.length > 1
@@ -253,6 +252,10 @@ class App extends Component {
 				infoInput.pop();
 				originArr.pop();
 			}
+			if (originArr.length > infoInput.length) {
+				originArr.length = infoInput.length;
+			}
+
 			return infoInput;
 		};
 
