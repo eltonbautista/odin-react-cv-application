@@ -132,24 +132,24 @@ class App extends Component {
 	addExtraInformation = (e) => {
 		e.preventDefault();
 
-		// const pushInformation = function (
-		// 	stateInformationInput,
-		// 	originalStateInformationInput
-		// ) {
-		// 	for (let i = 0; i < 5; i += 1) {
-		// 		stateInformationInput.push(originalStateInformationInput[i]);
-		// 	}
-		// 	return stateInformationInput;
-		// };
 		const pushInformation = function (
 			stateInformationInput,
 			originalStateInformationInput
 		) {
-			originalStateInformationInput.forEach((input) => {
-				stateInformationInput.push(input);
-			});
+			for (let i = 0; i < originalStateInformationInput.length; i += 1) {
+				stateInformationInput.push(originalStateInformationInput[i]);
+			}
 			return stateInformationInput;
 		};
+		// const pushInformation = function (
+		// 	stateInformationInput,
+		// 	originalStateInformationInput
+		// ) {
+		// 	originalStateInformationInput.forEach((input) => {
+		// 		stateInformationInput.push(input);
+		// 	});
+		// 	return stateInformationInput;
+		// };
 
 		const addButtonPreviewHandler = function (arrayName, inputArr) {
 			inputArr.forEach(() => {
