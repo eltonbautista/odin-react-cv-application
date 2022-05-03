@@ -130,7 +130,7 @@ p, h1, h2, h3, h4, h5, h6 {
 #resume-preview > div:nth-child(3) > div > ul > li:nth-child(5n + 5) > div {
   width: 65%;
   margin-top: 1vh;
-  content: '○'
+
 }
 
 #resume-preview > div:nth-child(2) > div > ul > li:nth-child(5n + 5) > div::before, 
