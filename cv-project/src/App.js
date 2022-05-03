@@ -147,11 +147,15 @@ class App extends Component {
 			stateInformationInput,
 			originalStateInformationInput
 		) {
-			originalStateInformationInput.forEach((input) => {
-				stateInformationInput.push(input);
-			});
+			// originalStateInformationInput.forEach((input) => {
+			// 	stateInformationInput.push(input);
+			// });
+			for (let i = 0; i < 5; i += 1) {
+				stateInformationInput.push(originalStateInformationInput[i]);
+			}
 			return stateInformationInput;
 		};
+
 		const target = e.target;
 		const name = target.name;
 		const informationRender = target.getAttribute('inforendering');
@@ -168,13 +172,27 @@ class App extends Component {
 
 	handleRemoveButton = (e) => {
 		const removeInformation = function (informationInput, removeArray) {
-			if (informationInput.length === removeArray.length) {
+			if (
+				informationInput.length === removeArray.length &&
+				informationInput.length === 5
+			) {
 				return informationInput;
 			}
-			// const spliceAt = -(informationInput.length - removeArray.length);
-			removeArray.forEach(() => {
-				informationInput.pop();
+			console.table(informationInput);
+			console.table(removeArray);
+			const fromTo =
+				informationInput.indexOf('From', informationInput.length - 2) - 3;
+			removeArray.forEach((input) => {
+				if (input === 'Description' && informationInput.length > 5) {
+					informationInput.pop();
+				}
+				if (removeArray.length > 5) {
+					removeArray.pop();
+				}
 			});
+			if (informationInput[informationInput.length - 1] === 'From') {
+				informationInput.splice(fromTo, 4);
+			}
 			return informationInput;
 		};
 		const target = e.target;
@@ -220,12 +238,11 @@ class App extends Component {
 
 		const removeDetails = function removeDetails(infoInput, originArr) {
 			let oneDescription = originArr.filter((d) => d === 'Description');
-			if (
-				oneDescription.length <= 1 &&
-				originArr[originArr.length - 1] === 'Description'
-			) {
-				// infoInput.pop();
-				return infoInput;
+			if (infoInput.length === 5) {
+				originArr.length = infoInput.length;
+			}
+			if (originArr.length > infoInput.length) {
+				originArr.length = infoInput.length;
 			}
 
 			if (
