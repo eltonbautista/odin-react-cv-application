@@ -47,6 +47,7 @@ p, h1, h2, h3, h4, h5, h6 {
     padding-bottom: 3vh;
     /* background-color: rgba(0, 0, 0, 0.829); */
     background-color: wheat;
+    /* max-height: 100vh; */
 }
 
 /* HEADER */
@@ -81,17 +82,21 @@ p, h1, h2, h3, h4, h5, h6 {
    ;
    border-radius: 10px;
    max-height: 100vh;
-   overflow: scroll;
+   /* height: fit-content; */
+   /* overflow: scroll; */
+   font-size: 0.7em;
+   display: grid;
+   grid-template-rows: 0.7fr repeat(2, 0.5fr) repeat(4, 0.4fr);
 }
 
-/* #resume-preview > * {
-  font-family: loraRegular;
-  font-weight: 300;
-  font-style: italic;
-} */
 #resume-preview > div:nth-child(1n + 1) > p {
   font-weight: 300;
   font-style: italic;
+}
+
+#resume-preview > div {
+  max-height: 30%;
+  max-width: 100%;
 }
 
 #app > div:last-child {
@@ -102,9 +107,9 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* PERSONAL INFORMATION */
-#resume-preview > div:nth-child(1) > p {
+/* #resume-preview > div:nth-child(1) > p {
   visibility: hidden;
-}
+} */
 
 
 #resume-preview > div:nth-child(1) > div {
@@ -113,7 +118,7 @@ p, h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 1fr 1fr;
   min-width: 100%;
   max-height: fit-content;
-  padding-top: 5vh;
+  padding-top: 2vh;
 }
 
 
@@ -123,20 +128,20 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .personal-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   overflow: hidden;
-  justify-items: end;
+  justify-items: center;
   border-radius: 50%;
   display: grid;
   position: sticky;
-  right: 8vw;
-  /* bottom: 63vh; */
+  margin-left: 8vw;
+  margin-top: -1.3vh;
   border: wheat 5px solid;
 }
 
 .personal-image > img {
-  position: relative;
+  /* position: relative; */
   height: 100%;
   margin-bottom: -25px;
 }
@@ -153,11 +158,11 @@ p, h1, h2, h3, h4, h5, h6 {
   padding: 1vh;
   border-radius: 1vh;
   border: 2px solid red;
-  margin-top: 8vh;
+  margin-top: 6%;
 }
 
 #resume-preview > div:nth-child(1) > div > ul > li:nth-child(1) > div{
-  font-size: 3em;
+  font-size: 4vh;
   width: 25vw;
   text-overflow: clip;
 }
@@ -169,8 +174,8 @@ p, h1, h2, h3, h4, h5, h6 {
 /* WORK EXPERIENCE */
 
 #resume-preview > div:nth-child(1n + 2) > div > ul > li{
-  max-width: 80%;
-  margin-bottom: 3px;
+  /* max-width: 80%; */
+  margin-bottom: 1px;
 }
 
 #resume-preview > div > div > ul > li {
@@ -178,26 +183,24 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #resume-preview > div > p {
-  font-size: 2.3vh;
+  font-size: 2vh;
+  font-weight: 900;
+  letter-spacing: 1.5px;
   padding-left: 3.2vw;
-  margin-top: 2vh;
+  margin-top: 0.5vh;
+  text-decoration: underline;
+  margin-bottom: 0.5vh;
 }
 
 #resume-preview > div:nth-child(2) > div > ul > li:nth-child(5n + 5) > div, 
 #resume-preview > div:nth-child(3) > div > ul > li:nth-child(5n + 5) > div {
   /* width: 65%; */
-  margin-top: 1vh;
-
+  margin-top: 0.6vh;
 }
 
 #resume-preview > div:nth-child(2) > div > ul > li:nth-child(5n + 5) > div::before, 
-#resume-preview > div:nth-child(3) > div > ul > li:nth-child(5n + 5) > div::before {
-  font-size: large;
-  content: '○ '
-}
-
-#resume-preview > div:nth-child(1n + 4) > div > ul > li > div::before  {
-  font-size: large;
+#resume-preview > div:nth-child(3) > div > ul > li:nth-child(5n + 5) > div::before,
+#resume-preview > div:nth-child(1n + 4) > div > ul > li > div::before {
   content: '○ '
 } 
 
@@ -205,6 +208,19 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .show-div {
   visibility: visible;
+}
+
+#resume-preview > div:nth-child(1n + 4) > div > ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 0.1fr 0.5fr;
+  justify-items: start;
+  /* width: 65%; */
+}
+
+#resume-preview > div:nth-child(5) > div > ul > li {
+  /* justify-content: center; */
+  width: fit-content;
 }
 
 /* FORM STYLING */
@@ -238,7 +254,7 @@ p, h1, h2, h3, h4, h5, h6 {
   justify-self: center;
   width: 90%;
   margin-bottom: 1vh;
-  margin-top: 1vh;
+  margin-top: 0.6vh;
 }
 
 #form-container > div > form > ul > li {
@@ -259,14 +275,12 @@ p, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5vh;
   border-radius: 8px;
   border: 0.5px solid rgba(0, 0, 0, 0.582);
-  font-size: 1.7vh;
+  font-size: 1.5vh;
 }
 
 #form-container > div > form > button:active {
   transform: scale(0.96);
-  /* Scaling button to 0.98 to its original size */
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-  /* Lowering the shadow */
   font-weight: 900;
 }
 
