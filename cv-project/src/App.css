@@ -80,6 +80,8 @@ p, h1, h2, h3, h4, h5, h6 {
    -8px 4px 7px rgba(0, 0, 0, 0.37)
    ;
    border-radius: 10px;
+   max-height: 100vh;
+   overflow: scroll;
 }
 
 /* #resume-preview > * {
@@ -107,28 +109,36 @@ p, h1, h2, h3, h4, h5, h6 {
 
 #resume-preview > div:nth-child(1) > div {
   display: grid;
-  grid-template-areas: 'info pic';
+  /* grid-template-areas: 'info pic'; */
+  grid-template-columns: 1fr 1fr;
+  min-width: 100%;
+  max-height: fit-content;
+  padding-top: 5vh;
 }
 
 
 #resume-preview > div:nth-child(1) > div > ul {
-  grid-area: info;
+  /* grid-area: info; */
+  min-width: 100%;
 }
 
 .personal-image {
-  grid-area: pic;
-  width: 50%;
-  height: 100%;
-  justify-self: center;
-  margin: 0;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  justify-items: end;
   border-radius: 50%;
   display: grid;
+  position: sticky;
+  right: 8vw;
+  /* bottom: 63vh; */
+  border: wheat 5px solid;
 }
 
 .personal-image > img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 50%;
+  position: relative;
+  height: 100%;
+  margin-bottom: -25px;
 }
 
 #resume-preview > div > div > ul {
@@ -137,32 +147,31 @@ p, h1, h2, h3, h4, h5, h6 {
 #resume-preview > div:nth-child(1) > div:nth-child(3) > ul > li {
   display: grid;
 }
-/* #resume-preview > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(5)::before {
-  content: 'Profile';
-  padding-left: 1vh;
-  font-size: 2.3vh;
-  margin-bottom: 0.7vh;
-  font-weight: 300;
-  font-style: italic;
-} */
-#resume-preview > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(5) {
-  margin-top: 1.5vh;
-  background-color: rgb(39, 42, 56);
-  border-radius: 10px;
-}
 
 #resume-preview > div:nth-child(1) > div > ul > li:nth-child(5) > div {
   background-color: rgba(255, 255, 255, 0);
   padding: 1vh;
   border-radius: 1vh;
   border: 2px solid red;
+  margin-top: 8vh;
 }
 
 #resume-preview > div:nth-child(1) > div > ul > li:nth-child(1) > div{
   font-size: 3em;
+  width: 25vw;
+  text-overflow: clip;
+}
+#resume-preview > div:nth-child(1) > div > ul > li:nth-child(5) {
+  /* background-color: black; */
+  width: 35vw;
 }
 
 /* WORK EXPERIENCE */
+
+#resume-preview > div:nth-child(1n + 2) > div > ul > li{
+  max-width: 80%;
+  margin-bottom: 3px;
+}
 
 #resume-preview > div > div > ul > li {
   display: grid;
@@ -176,7 +185,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 #resume-preview > div:nth-child(2) > div > ul > li:nth-child(5n + 5) > div, 
 #resume-preview > div:nth-child(3) > div > ul > li:nth-child(5n + 5) > div {
-  width: 65%;
+  /* width: 65%; */
   margin-top: 1vh;
 
 }
@@ -208,6 +217,8 @@ p, h1, h2, h3, h4, h5, h6 {
   box-shadow: 8px -4px 7px rgba(0, 0, 0, 0.37),
    -8px 4px 7px rgba(0, 0, 0, 0.37);
    padding-bottom: 1vh;
+   max-height: 100vh;
+   overflow: scroll;
 }
 
 #form-container > div {
