@@ -24,6 +24,7 @@ class InformationRows extends Component {
 			stateKeysInformationInputs,
 			addExtraDetails,
 			removeExtraDetails,
+			handleImage,
 		} = this.props;
 		let counter = 0;
 		let { specialId } = this.props;
@@ -65,7 +66,12 @@ class InformationRows extends Component {
 				return (
 					<li key={properId}>
 						<label>
-							Upload image<input type='file'></input>{' '}
+							Upload image
+							<input
+								type='file'
+								onChange={handleImage}
+								accept='img/png, img/jpg, img/jpeg'
+							></input>{' '}
 						</label>
 					</li>
 				);

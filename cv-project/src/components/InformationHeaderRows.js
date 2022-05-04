@@ -13,6 +13,7 @@ class InformationHeaderRows extends Component {
 			title,
 			value,
 			info,
+
 			addBtn,
 			removeBtn,
 			updateResume,
@@ -22,6 +23,7 @@ class InformationHeaderRows extends Component {
 			addExtraDetails,
 			specialId,
 			removeExtraDetails,
+			handleImage,
 		} = this.props;
 
 		const properId =
@@ -42,6 +44,7 @@ class InformationHeaderRows extends Component {
 					addExtraDetails={addExtraDetails}
 					specialId={specialId}
 					removeExtraDetails={removeExtraDetails}
+					handleImage={handleImage}
 				/>
 			</div>
 		);

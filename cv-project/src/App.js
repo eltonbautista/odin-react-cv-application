@@ -48,6 +48,7 @@ class App extends Component {
 			skillsInformationInputs: ['Customer service (example)'],
 			passionsInformationInputs: ['Snowboarding (example)'],
 			specialId: uniqid(),
+			selectedImage: null,
 		};
 		this.originalState = {
 			personalInformationInputs: [
@@ -306,6 +307,13 @@ class App extends Component {
 		});
 	};
 
+	handleFileChange = (e) => {
+		console.log(e.target.files);
+		this.setState({
+			selectedImage: URL.createObjectURL(e.target.files[0]),
+		});
+	};
+
 	render() {
 		// eslint-disable-next-line prettier/prettier
 		return (
@@ -318,6 +326,7 @@ class App extends Component {
 					informationState={this.state}
 					addExtraDetails={this.handleAddDetailsButton}
 					removeExtraDetails={this.handleRemoveDetailsButton}
+					handleImage={this.handleFileChange}
 				/>
 				<ResumePreview informationState={this.state} />
 			</div>

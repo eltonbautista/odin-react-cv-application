@@ -17,6 +17,7 @@ class Form extends Component {
 			handleRemoveButton,
 			addExtraDetails,
 			removeExtraDetails,
+			handleImage,
 		} = this.props;
 
 		const addButton = function addButton() {
@@ -62,6 +63,7 @@ class Form extends Component {
 					key={'qwkjeh'}
 					title='Personal Information'
 					info={informationState.personalInformationInputs}
+					handleImage={handleImage}
 					updateResume={updateResume}
 					value={informationState.personalInformation}
 				/>,
