@@ -12,9 +12,14 @@ class ResumePreviewHeaderRows extends Component {
 
 		return (
 			<div>
-				<p>{title}</p>
-				<>{personalImage}</>
-				<ResumePreviewRows information={information} />
+				{title === 'Personal Information' ? null : <p>{title}</p>}
+				{/* <p>{title}</p> */}
+				{/* <>{personalImage}</> */}
+				<ResumePreviewRows
+					information={information}
+					title={title}
+					personalImage={personalImage}
+				/>
 			</div>
 		);
 	}

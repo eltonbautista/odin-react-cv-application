@@ -10,7 +10,6 @@ class ResumePreview extends Component {
 
 	render() {
 		const { informationState } = this.props;
-		console.log(informationState.selectedImage);
 		const profileImage = (
 			<div className='personal-image'>
 				{' '}
@@ -31,7 +30,7 @@ class ResumePreview extends Component {
 			];
 			const resumePreviewArray = [
 				<ResumePreviewHeaderRows
-					key={'Personal Information'}
+					key={''}
 					title='Personal Information'
 					information={informationState.personalInformation}
 					personalImage={profileImage}

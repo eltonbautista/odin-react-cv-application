@@ -10,7 +10,9 @@ class ResumePreviewRows extends Component {
 	}
 
 	render() {
-		const { information } = this.props;
+		const { information, title, personalImage } = this.props;
+		// console.log(title);
+
 		const listOfInformation = information.map((info) => {
 			let keyId = uniqid();
 			return (
@@ -23,6 +25,7 @@ class ResumePreviewRows extends Component {
 		return (
 			<div>
 				<ul className='resume-preview-list'>{listOfInformation}</ul>
+				{title === 'Personal Information' ? personalImage : null}
 			</div>
 		);
 	}
