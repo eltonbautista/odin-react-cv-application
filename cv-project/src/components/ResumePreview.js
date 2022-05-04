@@ -10,10 +10,11 @@ class ResumePreview extends Component {
 
 	render() {
 		const { informationState } = this.props;
+		console.log(informationState.selectedImage);
 		const profileImage = (
 			<div className='personal-image'>
 				{' '}
-				<img alt='profile'></img>{' '}
+				<img alt='profile' src={`${informationState.selectedImage}`}></img>{' '}
 			</div>
 		);
 		const stateKeysInformation = Object.keys(
