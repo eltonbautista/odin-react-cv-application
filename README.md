@@ -1,5 +1,5 @@
 # odin-react-cv-application
-My first React.js project! This CV Application allows the user to input data onto the Form component, which then renders onto the resumePreview component.
+My first ReactJS project! This CV Application allows the user to input data onto the Form component, which then renders onto the resumePreview component.
 In this project I practice and develop my knowledge of React syntax, components, logic, design, props, state, etc. 
 
 ![image](https://user-images.githubusercontent.com/94667178/166822641-f1609517-0ed6-431f-9292-0a68f0013eb7.png)
